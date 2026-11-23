@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 09 — Structural: Sibling Reorder or Wrapper Swap — Multi-Aspect WBIP Scenes Docs</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script>
+    (function() {
+      var t = localStorage.getItem("wbip-docs-theme");
+      if (t === "dark" || (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="mobile-topbar">
+    <button type="button" class="icon-btn" id="sidebar-open" aria-label="Open menu">☰</button>
+    <a href="./index.html" class="mobile-brand">Multi-Aspect WBIP Docs</a>
+    <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <a href="./index.html" class="brand-link">
+        <span class="brand-logo">@</span>
+        <span>
+          <strong>Multi-Aspect WBIP</strong>
+          <small>Scene Diff &amp; Reduction Docs</small>
+        </span>
+      </a>
+      <button class="icon-btn mobile-close" id="sidebar-close" aria-label="Close navigation">✕</button>
+    </div>
+    <div class="global-search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="global-search-input" placeholder="Search all 508 scenes..." autocomplete="off" aria-label="Search all scenes across all groups" />
+      <kbd>/</kbd>
+      <div class="global-search-results" id="global-search-results" hidden></div>
+    </div>
+    <nav class="sidebar-nav" aria-label="Diff groups">
+      <div class="nav-section-title">Documentation</div>
+      <a class="nav-item" href="./index.html"><span class="nav-label">Overview &amp; Index</span><span class="nav-count badge-index">508</span></a>
+      <div class="nav-section-title">Same Node Tree (Groups 01–07)</div>
+      <a class="nav-item" href="./01-identical.html"><span class="nav-label"><span class="nav-num">01</span>Identical Trees &amp; FSM</span><span class="nav-count badge-trivial">47</span></a>
+      <a class="nav-item" href="./02-root-offset-only.html"><span class="nav-label"><span class="nav-num">02</span>Top-Level Offset / Bounds</span><span class="nav-count badge-easy">8</span></a>
+      <a class="nav-item" href="./03-root-uniform-scale-offset.html"><span class="nav-label"><span class="nav-num">03</span>Uniform Scale + Offset</span><span class="nav-count badge-easy">157</span></a>
+      <a class="nav-item" href="./04-prop-diff-1-to-5-nodes.html"><span class="nav-label"><span class="nav-num">04</span>1–5 Nodes Differ</span><span class="nav-count badge-medium">79</span></a>
+      <a class="nav-item" href="./05-prop-diff-many-nodes.html"><span class="nav-label"><span class="nav-num">05</span>&gt;5 Nodes Differ</span><span class="nav-count badge-medium">39</span></a>
+      <a class="nav-item" href="./06-fsm-actions-differ.html"><span class="nav-label"><span class="nav-num">06</span>FSM actionIndices Differ</span><span class="nav-count badge-medhard">66</span></a>
+      <a class="nav-item" href="./07-fsm-states-differ.html"><span class="nav-label"><span class="nav-num">07</span>FSM states Differ</span><span class="nav-count badge-medium">1</span></a>
+      <div class="nav-section-title">Structural Diffs (Groups 08–11)</div>
+      <a class="nav-item" href="./08-structural-empty-stub.html"><span class="nav-label"><span class="nav-num">08</span>Empty / Stub Variant</span><span class="nav-count badge-easy">2</span></a>
+      <a class="nav-item active" href="./09-structural-wrapper-or-reorder.html"><span class="nav-label"><span class="nav-num">09</span>Reorder / Wrapper Swap</span><span class="nav-count badge-medhard">19</span></a>
+      <a class="nav-item" href="./10-structural-small-node-delta.html"><span class="nav-label"><span class="nav-num">10</span>Small Node Delta (1–3)</span><span class="nav-count badge-hard">29</span></a>
+      <a class="nav-item" href="./11-structural-large-divergence.html"><span class="nav-label"><span class="nav-num">11</span>Large Divergence (≥4)</span><span class="nav-count badge-hard">11</span></a>
+      <div class="nav-section-title">Orientation</div>
+      <a class="nav-item" href="./12-portrait-and-orientation.html"><span class="nav-label"><span class="nav-num">12</span>Portrait &amp; Orientation</span><span class="nav-count badge-mixed">113</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+        <span class="theme-icon">◐</span>
+        <span class="theme-label">Toggle Light / Dark</span>
+      </button>
+    </div>
+  </aside>
+    <main class="main">
+      <div class="content-grid">
+        <article class="article">
+          <div class="breadcrumb">
+            <a href="./index.html">Overview</a>
+            <span class="sep">/</span><span>Group 09: Reorder / Wrapper Swap</span>
+          </div>
+          <div class="page-header">
+          <div class="page-eyebrow">
+            <span class="badge badge-medhard">Med–Hard</span>
+            <span class="eyebrow-count">19 landscape groups</span>
+          </div>
+          <h1 id="group-09-structural-same-node-count-sibling-reorder-or-wrapper-type-swap">Group 09 — Structural: Same Node Count, Sibling Reorder or Wrapper-Type Swap</h1>
+        </div>
+<div class="meta-grid"><div class="meta-card"><div class="meta-label">Count</div><div class="meta-value"><code>19</code> landscape groups (<code>4.1%</code> of <code>458</code>)</div></div><div class="meta-card"><div class="meta-label">Difficulty</div><div class="meta-value"><strong>Medium–Hard</strong></div></div><div class="meta-card"><div class="meta-label">Target outcome</div><div class="meta-value">Normalize wrapper type or unify sibling layer order / <code>DrawOrder</code> to collapse into <strong>1 <code>scene.object.tsx</code></strong> (with FSM binding verification).</div></div></div>
+<hr class="section-divider" />
+<h2 id="1-what-defines-this-group"><a class="anchor" href="#1-what-defines-this-group" aria-hidden="true">#</a>1. What Defines This Group</h2>
+<p>Every landscape variant has the <strong>exact same total node count</strong>, yet a positional tree comparison detects node-type mismatches. Inspecting the actual WBIP trees reveals <strong>two distinct sub-cases</strong>:</p>
+<ol><li><strong>Sub-case 9a — Pure wrapper-type swap (<code>1</code> group):</strong> The exact same node at the exact same position in the tree swaps between compatible container types (<code>CONTAINER_NODE</code> ↔ <code>RENDER_STATES_NODE</code>) while keeping identical children.</li><li><strong>Sub-case 9b — Sibling / Flash layer reordering (<code>18</code> groups):</strong> The exact same child subtrees exist under the same parent, but an artist dragged a layer up or down in Flash on one aspect ratio (e.g. moving <code>timerAnimStates</code> above <code>contentAnimStates</code>, or <code>closeBtn</code> above <code>winCoinsAmount</code>). Because WBIP serializes children in layer order, reordering siblings shifts their <code>flatIndices</code> and makes a naive index-by-index diff look like type swaps!</li></ol>
+<hr class="section-divider" />
+<h2 id="2-real-wbip-examples-side-by-side-trees"><a class="anchor" href="#2-real-wbip-examples-side-by-side-trees" aria-hidden="true">#</a>2. Real WBIP Examples (Side-by-Side Trees)</h2>
+<h3 id="example-a-sub-case-9a-pure-wrapper-type-swap-sh-game675-slot-popups-coinsplash-scene-object"><a class="anchor" href="#example-a-sub-case-9a-pure-wrapper-type-swap-sh-game675-slot-popups-coinsplash-scene-object" aria-hidden="true">#</a>Example A (Sub-case 9a — Pure Wrapper-Type Swap): <code>sh-game675.slot.popups.coinSplash</code> — <code>scene@.object</code></h3>
+<p>Both <code>3x2</code> and <code>4x3</code> have <code>12</code> nodes. Only node <code>idx:3</code> changes from <code>CONTAINER_NODE</code> to <code>RENDER_STATES_NODE</code>:</p>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>3x2</code> (<code>12</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;main&quot;]</span> <span class="tok-idx">(idx:11)</span></span>
+<span class="tree-line">  └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:10)</span></span>
+<span class="tree-line">       ├─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:7)</span></span>
+<span class="tree-line">       │    ├─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:0)</span></span>
+<span class="tree-line tree-line-mod">       │    ├─ CONTAINER_NODE (idx:3)  <span class="tree-note">&lt;-- CONTAINER_NODE on 3x2</span></span>
+<span class="tree-line">       │    │    └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:2)</span></span>
+<span class="tree-line">       │    └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:6)</span></span>
+<span class="tree-line">       │         └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:5)</span></span>
+<span class="tree-line">       └─ <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bg_soundEnd&quot;]</span> <span class="tok-idx">(idx:9)</span></span>
+<span class="tree-line">            └─ <span class="tok-node">SOUND_NODE</span> <span class="tok-idx">(idx:8)</span></span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>4x3</code> (<code>12</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;main&quot;]</span> <span class="tok-idx">(idx:11)</span></span>
+<span class="tree-line">  └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:10)</span></span>
+<span class="tree-line">       ├─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:7)</span></span>
+<span class="tree-line">       │    ├─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:0)</span></span>
+<span class="tree-line tree-line-add">       │    ├─ RENDER_STATES_NODE (idx:3)  <span class="tree-note">&lt;-- RENDER_STATES_NODE on 4x3</span></span>
+<span class="tree-line">       │    │    └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:2)</span></span>
+<span class="tree-line">       │    └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:6)</span></span>
+<span class="tree-line">       │         └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:5)</span></span>
+<span class="tree-line">       └─ <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bg_soundEnd&quot;]</span> <span class="tok-idx">(idx:9)</span></span>
+<span class="tree-line">            └─ <span class="tok-node">SOUND_NODE</span> <span class="tok-idx">(idx:8)</span></span></code></pre>
+        </div>
+      </div>
+<hr class="section-divider" />
+<h3 id="example-b-sub-case-9b-sibling-layer-reordering-sh-remote-clans-challenges-scenechallengearena-object"><a class="anchor" href="#example-b-sub-case-9b-sibling-layer-reordering-sh-remote-clans-challenges-scenechallengearena-object" aria-hidden="true">#</a>Example B (Sub-case 9b — Sibling Layer Reordering): <code>sh-remote-Clans.Challenges</code> — <code>sceneChallengeArena@.object</code></h3>
+<p>Both <code>3x2</code> and <code>16x9</code> have <strong><code>198</code> nodes</strong> and the exact same 8 children inside <code>challengeContent</code> — only <code>timerAnimStates</code> moved from child <code>[3]</code> to child <code>[1]</code> in <code>16x9</code>:</p>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>3x2</code> (<code>198</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;challengeContent&quot;]</span> <span class="tok-idx">(idx:188)</span></span>
+<span class="tree-line">  ├─ [0] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;itemBgHolder&quot;]</span>      <span class="tok-idx">(idx:1)</span>   pos=(27, 65)   scale=0.85</span>
+<span class="tree-line">  ├─ [1] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;contentAnimStates&quot;]</span> <span class="tok-idx">(idx:97)</span>  pos=(312, 345) scale=0.85</span>
+<span class="tree-line">  ├─ [2] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;centralBtn&quot;]</span>        <span class="tok-idx">(idx:111)</span> pos=(334, 480) scale=0.85</span>
+<span class="tree-line tree-line-mod">  ├─ [3] CONTROL_NODE [id=&quot;timerAnimStates&quot;]   (idx:127) pos=(409, 167) scale=0.85   <span class="tree-note">&lt;-- child [3]</span></span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;headerStates&quot;]</span>      <span class="tok-idx">(idx:152)</span> pos=(203, 59)  scale=0.85</span>
+<span class="tree-line">  ├─ [5] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;backBtn&quot;]</span>           <span class="tok-idx">(idx:154)</span> pos=(43, 47)</span>
+<span class="tree-line">  ├─ [6] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;closeBtn&quot;]</span>          <span class="tok-idx">(idx:159)</span> pos=(883, 48)</span>
+<span class="tree-line">  └─ [7] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;midRewardTooltip&quot;]</span>  <span class="tok-idx">(idx:187)</span> pos=(-109, 35) scale=0.85</span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>16x9</code> (<code>198</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;challengeContent&quot;]</span> <span class="tok-idx">(idx:188)</span></span>
+<span class="tree-line">  ├─ [0] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;itemBgHolder&quot;]</span>      <span class="tok-idx">(idx:1)</span>   pos=(-53, 20)  scale=1.00</span>
+<span class="tree-line tree-line-add">  ├─ [1] CONTROL_NODE [id=&quot;timerAnimStates&quot;]   (idx:17)  pos=(397, 138) scale=1.00   <span class="tree-note">&lt;-- moved to [1]!</span></span>
+<span class="tree-line">  ├─ [2] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;contentAnimStates&quot;]</span> <span class="tok-idx">(idx:113)</span> pos=(283, 353) scale=1.00</span>
+<span class="tree-line">  ├─ [3] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;centralBtn&quot;]</span>        <span class="tok-idx">(idx:127)</span> pos=(306, 510) scale=1.00</span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;headerStates&quot;]</span>      <span class="tok-idx">(idx:152)</span> pos=(154, 13)  scale=1.00</span>
+<span class="tree-line">  ├─ [5] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;backBtn&quot;]</span>           <span class="tok-idx">(idx:154)</span> pos=(-57, 46)  scale=1.10</span>
+<span class="tree-line">  ├─ [6] <span class="tok-node">BUTTON_NODE</span>  <span class="tok-id">[id=&quot;closeBtn&quot;]</span>          <span class="tok-idx">(idx:159)</span> pos=(983, 48)</span>
+<span class="tree-line">  └─ [7] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;midRewardTooltip&quot;]</span>  <span class="tok-idx">(idx:187)</span> pos=(-213, 0)  scale=1.00</span></code></pre>
+        </div>
+      </div>
+<p>Notice how <code>timerAnimStates</code> moving from <code>[3]</code> to <code>[1]</code> shifted the <code>flatIndex</code> of <code>contentAnimStates</code> (<code>97 → 113</code>) and <code>centralBtn</code> (<code>111 → 127</code>), even though the actual UI components are 100% identical!</p>
+<hr class="section-divider" />
+<h2 id="3-potential-solution-reduce-to-1-scene"><a class="anchor" href="#3-potential-solution-reduce-to-1-scene" aria-hidden="true">#</a>3. Potential Solution (Reduce to 1 Scene)</h2>
+<ol><li><strong>For Sub-case 9a (pure wrapper-type swap):</strong><ul><li>Normalize the node to the richer type (<code>RenderStatesNode</code> instead of <code>ContainerNode</code>, or <code>ButtonNode</code> instead of <code>ControlNode</code> after verifying <code>Binder</code> expectations). <code>flatIndices</code> remain unchanged, so the scene collapses immediately into <strong>1 <code>scene.object.tsx</code></strong>.</li></ul></li><li><strong>For Sub-case 9b (sibling layer reordering):</strong><ul><li>Match children by <code>Id</code> (and subtree signature for unnamed nodes) instead of raw child index inside the <code>wbip-processor</code> diff engine.</li><li>Pick one canonical child order (e.g. <code>3x2</code>) so <strong><code>flatIndices</code> are locked to a single canonical tree</strong> and <strong>1 <code>WbipSceneV3</code></strong> is kept.</li><li>If the layer swap actually affects visual overlap on one aspect (check bounding-box intersection), express it via <code>DrawOrder={byAspect({ &quot;16x9&quot;: ..., default: ... })}</code> instead of reordering JSX children — preserving <code>flatIndices</code> while still honoring per-aspect paint order!</li></ul></li></ol>
+<div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">TSX</span>
+          <button class="copy-btn" type="button" data-copy>Copy</button>
+        </div>
+        <pre><code class="lang-tsx"><span class="tok-comment">// Keep canonical child order (stable flatIndices) and adjust paint order via DrawOrder if needed:</span>
+&lt;<span class="tok-tag">ControlNode</span> Id=<span class="tok-string">&quot;challengeContent&quot;</span>&gt;
+    &lt;<span class="tok-tag">ControlNode</span> Id=<span class="tok-string">&quot;itemBgHolder&quot;</span> Position={byAspect({ <span class="tok-string">&quot;16x9&quot;</span>: { x: -<span class="tok-num">53</span>, y: <span class="tok-num">20</span> }, <span class="tok-kw">default</span>: { x: <span class="tok-num">27</span>, y: <span class="tok-num">65</span> } })} /&gt;
+    &lt;<span class="tok-tag">ControlNode</span> Id=<span class="tok-string">&quot;contentAnimStates&quot;</span> <span class="tok-comment">/* ... */</span> /&gt;
+    &lt;<span class="tok-tag">ButtonNode</span> Id=<span class="tok-string">&quot;centralBtn&quot;</span> <span class="tok-comment">/* ... */</span> /&gt;
+    &lt;<span class="tok-tag">ControlNode</span>
+        Id=<span class="tok-string">&quot;timerAnimStates&quot;</span>
+        DrawOrder={byAspect({ <span class="tok-string">&quot;16x9&quot;</span>: <span class="tok-num">1</span>, <span class="tok-kw">default</span>: <span class="tok-num">3</span> })}
+        Position={byAspect({ <span class="tok-string">&quot;16x9&quot;</span>: { x: <span class="tok-num">397</span>, y: <span class="tok-num">138</span> }, <span class="tok-kw">default</span>: { x: <span class="tok-num">409</span>, y: <span class="tok-num">167</span> } })}
+    /&gt;
+    {<span class="tok-comment">/* ... */</span>}
+&lt;/<span class="tok-tag">ControlNode</span>&gt;</code></pre>
+      </div>
+<h3 id="edge-cases-gotchas"><a class="anchor" href="#edge-cases-gotchas" aria-hidden="true">#</a>Edge cases &amp; gotchas</h3>
+<ul><li><strong><code>DrawOrder</code> vs Pixi render order:</strong> In <code>@playtika/pixi</code>, <code>DrawOrder</code> maps to <code>zIndex</code> (and enables <code>sortableChildren</code> on the parent) — verify sibling nodes without explicit <code>DrawOrder</code> don't unexpectedly jump layers when <code>sortableChildren</code> turns on.</li><li><strong><code>children[i]</code> indexing in code-behind:</strong> Check if legacy view code accesses <code>parent.children[1]</code> by numeric index instead of <code>findById(...)</code> before unifying child order.</li><li><strong>FSM re-indexing:</strong> Because reordering children shifts <code>flatIndices</code>, always use the canonical aspect's <code>WbipSceneV3</code> FSM (do NOT pair <code>16x9</code>'s FSM with <code>3x2</code>'s child order without remapping node indices!).</li></ul>
+<hr class="section-divider" />
+<h2 id="4-complete-scene-list-19-groups"><a class="anchor" href="#4-complete-scene-list-19-groups" aria-hidden="true">#</a>4. Complete Scene List (19 Groups)</h2>
+<div class="table-toolbar" data-table-toolbar="tbl-09-1">
+              <div class="table-search-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" class="table-search" placeholder="Filter 19 scenes by package, scene name, aspect, or property..." aria-label="Filter table" />
+              </div>
+              
+              <span class="table-count" data-count>Showing <strong>19</strong> of 19</span>
+            </div><div class="table-wrap"><table id="tbl-09-1" class="inventory-table"><thead><tr><th class="align-right">#</th><th class="align-left">Package</th><th class="align-left">Scene Pattern</th><th class="align-left">Sub-case</th><th class="align-left">Landscape Aspects</th><th class="align-right">Nodes</th><th class="align-left">First Observed Reorder / Swap</th></tr></thead><tbody><tr data-scope="" data-search="1 sh-game675.slot.popups.coinsplash scene@.object wrapper-type-swap 4x3, 3x2 12 root/0:render_states_node/0:container_node/1:container_node (3x2 vs 4x3): container_node ↔ render_states_node"><td class="align-right">1</td><td class="align-left"><code>sh-game675.slot.popups.coinSplash</code></td><td class="align-left"><code>scene@.object</code></td><td class="align-left"><code>wrapper-type-swap</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">12</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/1:CONTAINER_NODE</code> (3x2 vs 4x3): <code>CONTAINER_NODE</code> ↔ <code>RENDER_STATES_NODE</code></td></tr><tr data-scope="" data-search="2 sh-remote-clans.challenges scenechallengearena@.object sibling-reorder 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 198 root/1:challengecontent/1:contentanimstates/0:container_node (3x2 vs 16x9): container_node ↔ control_node#timerstates"><td class="align-right">2</td><td class="align-left"><code>sh-remote-Clans.Challenges</code></td><td class="align-left"><code>sceneChallengeArena@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">198</td><td class="align-left"><code>root/1:challengeContent/1:contentAnimStates/0:CONTAINER_NODE</code> (3x2 vs 16x9): <code>CONTAINER_NODE</code> ↔ <code>CONTROL_NODE</code>#timerStates</td></tr><tr data-scope="" data-search="3 sh-remote-clans.lobbyver2 sceneclanslobby@.object sibling-reorder 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 81 root/0:clanslobby/1:backbtn#backbtn (3x2 vs 18x9): button_node#backbtn ↔ control_node#bannersholder"><td class="align-right">3</td><td class="align-left"><code>sh-remote-Clans.LobbyVer2</code></td><td class="align-left"><code>sceneClansLobby@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">81</td><td class="align-left"><code>root/0:clansLobby/1:backBtn#backBtn</code> (3x2 vs 18x9): <code>BUTTON_NODE</code>#backBtn ↔ <code>CONTROL_NODE</code>#bannersHolder</td></tr><tr data-scope="" data-search="4 sh-remote-featureinfo.popupsv2 scenedefaultfeatureinfopopup@.object sibling-reorder 4x3, 3x2, 16x9 10 root/2:closestates#closestates (3x2 vs 4x3): control_node#closestates ↔ linear_layout_group_node#dotsholder"><td class="align-right">4</td><td class="align-left"><code>sh-remote-FeatureInfo.PopupsV2</code></td><td class="align-left"><code>sceneDefaultFeatureInfoPopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code></td><td class="align-right">10</td><td class="align-left"><code>root/2:closeStates#closeStates</code> (3x2 vs 4x3): <code>CONTROL_NODE</code>#closeStates ↔ <code>LINEAR_LAYOUT_GROUP_NODE</code>#dotsHolder</td></tr><tr data-scope="" data-search="5 sh-remote-megabonus scene@.object sibling-reorder 4x3, 3x2, 16x9, 19.5x9 626 root/0:render_states_node/10:holder_lootbox#holder_lootbox (3x2 vs 16x9): control_node#holder_lootbox ↔ button_node#skipbtn"><td class="align-right">5</td><td class="align-left"><code>sh-remote-MegaBonus</code></td><td class="align-left"><code>scene@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code>, <code>19.5x9</code></td><td class="align-right">626</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/10:holder_lootBox#holder_lootBox</code> (3x2 vs 16x9): <code>CONTROL_NODE</code>#holder_lootBox ↔ <code>BUTTON_NODE</code>#skipBtn</td></tr><tr data-scope="" data-search="6 sh-remote-pachinkowinpopups scenewindeluxepopup@.object sibling-reorder 4x3, 3x2, 16x9 60 root/0:render_states_node/0:container_node/4:sprite_node (3x2 vs 4x3): sprite_node ↔ control_node#deluxelogo"><td class="align-right">6</td><td class="align-left"><code>sh-remote-PachinkoWinPopups</code></td><td class="align-left"><code>sceneWinDeluxePopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code></td><td class="align-right">60</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/4:SPRITE_NODE</code> (3x2 vs 4x3): <code>SPRITE_NODE</code> ↔ <code>CONTROL_NODE</code>#deluxeLogo</td></tr><tr data-scope="" data-search="7 sh-remote-popups.mydailytreat scenefinishmonthpopup@.object sibling-reorder 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 41 root/0:render_states_node/0:container_node/10:btnclose#btnclose (3x2 vs 19.5x9): button_node#btnclose ↔ sound_node"><td class="align-right">7</td><td class="align-left"><code>sh-remote-Popups.MyDailyTreat</code></td><td class="align-left"><code>sceneFinishMonthPopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">41</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/10:btnClose#btnClose</code> (3x2 vs 19.5x9): <code>BUTTON_NODE</code>#btnClose ↔ <code>SOUND_NODE</code></td></tr><tr data-scope="" data-search="8 sh-remote-scapes.infopages scenescapesinfopages@.object sibling-reorder 4x3, 3x2, 16x9 10 root/2:closestates#closestates (3x2 vs 4x3): control_node#closestates ↔ linear_layout_group_node#dotsholder"><td class="align-right">8</td><td class="align-left"><code>sh-remote-Scapes.InfoPages</code></td><td class="align-left"><code>sceneScapesInfoPages@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code></td><td class="align-right">10</td><td class="align-left"><code>root/2:closeStates#closeStates</code> (3x2 vs 4x3): <code>CONTROL_NODE</code>#closeStates ↔ <code>LINEAR_LAYOUT_GROUP_NODE</code>#dotsHolder</td></tr><tr data-scope="" data-search="9 sh-remote-slotocards.shiny.popups.challengecompleted sceneshinychallengecompletedpopup@.object sibling-reorder 4x3, 3x2 73 root/0:render_states_node/0:container_node/23:closebtn#closebtn (3x2 vs 4x3): button_node#closebtn ↔ text_layout_node#wincoinsamount"><td class="align-right">9</td><td class="align-left"><code>sh-remote-SlotoCards.Shiny.Popups.ChallengeCompleted</code></td><td class="align-left"><code>sceneShinyChallengeCompletedPopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">73</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/23:closeBtn#closeBtn</code> (3x2 vs 4x3): <code>BUTTON_NODE</code>#closeBtn ↔ <code>TEXT_LAYOUT_NODE</code>#winCoinsAmount</td></tr><tr data-scope="" data-search="10 sh-remote-slotocards.shiny.popups.challengemilestonecompleted sceneshinychallengecompletedpopup@.object sibling-reorder 4x3, 3x2 76 root/0:render_states_node/0:container_node/23:closebtn#closebtn (3x2 vs 4x3): button_node#closebtn ↔ text_layout_node#wincoinsamount"><td class="align-right">10</td><td class="align-left"><code>sh-remote-SlotoCards.Shiny.Popups.ChallengeMilestoneCompleted</code></td><td class="align-left"><code>sceneShinyChallengeCompletedPopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">76</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/23:closeBtn#closeBtn</code> (3x2 vs 4x3): <code>BUTTON_NODE</code>#closeBtn ↔ <code>TEXT_LAYOUT_NODE</code>#winCoinsAmount</td></tr><tr data-scope="" data-search="11 sh-remote-slotoheroes.slotofigz.arena.sets scenefigz2arenasets@.object sibling-reorder 4x3, 3x2, 16x9 95 root/0:render_states_node/0:container_node/4:leftpanelstates/0:container_node/2:featurebet#featurebet (3x2 vs 4x3): bitmap_text_node#featurebet ↔ container_node#machinecontainer"><td class="align-right">11</td><td class="align-left"><code>sh-remote-SlotoHeroes.SlotoFigz.Arena.Sets</code></td><td class="align-left"><code>sceneFigz2ArenaSets@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code></td><td class="align-right">95</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/4:leftPanelStates/0:CONTAINER_NODE/2:featureBet#featureBet</code> (3x2 vs 4x3): <code>BITMAP_TEXT_NODE</code>#featureBet ↔ <code>CONTAINER_NODE</code>#machineContainer</td></tr><tr data-scope="" data-search="12 sh-remote-snlgame.popups.readytoroll scenesnlreadytorollpopup@.object sibling-reorder 4x3, 3x2, 5x3, 16x9 127 root/0:popup/0:container_node/21:maincontainer#maincontainer (3x2 vs 4x3): control_node#maincontainer ↔ color_correction_node"><td class="align-right">12</td><td class="align-left"><code>sh-remote-SnlGame.Popups.ReadyToRoll</code></td><td class="align-left"><code>sceneSnlReadyToRollPopup@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code></td><td class="align-right">127</td><td class="align-left"><code>root/0:popup/0:CONTAINER_NODE/21:MainContainer#MainContainer</code> (3x2 vs 4x3): <code>CONTROL_NODE</code>#MainContainer ↔ <code>COLOR_CORRECTION_NODE</code></td></tr><tr data-scope="" data-search="13 sh-remote-stampcardsindication scenestampit@.object sibling-reorder 4x3, 3x2, 19.5x9 144 root/0:render_states_node/0:container_node/2:btn_info#btn_info (3x2 vs 19.5x9): button_node#btn_info ↔ control_node#title_stampit"><td class="align-right">13</td><td class="align-left"><code>sh-remote-StampCardsIndication</code></td><td class="align-left"><code>sceneStampIt@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>19.5x9</code></td><td class="align-right">144</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/2:Btn_info#Btn_info</code> (3x2 vs 19.5x9): <code>BUTTON_NODE</code>#Btn_info ↔ <code>CONTROL_NODE</code>#title_stampIt</td></tr><tr data-scope="" data-search="14 sh-remote-wheelofstarsver2.cardsselectionscreen scenecardsselectionscreen@.object sibling-reorder 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 626 root/0:render_states_node/0:container_node/6:bottompanel/8:tooltips/6:exchangemorestarstooltip/0:container_node/3:starsnum1#starsnum1 (3x2 vs 4x3): bitmap_text_node#starsnum1 ↔ sprite_node"><td class="align-right">14</td><td class="align-left"><code>sh-remote-WheelOfStarsVer2.CardsSelectionScreen</code></td><td class="align-left"><code>sceneCardsSelectionScreen@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">626</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/6:bottomPanel/8:tooltips/6:exchangeMoreStarsTooltip/0:CONTAINER_NODE/3:starsNum1#starsNum1</code> (3x2 vs 4x3): <code>BITMAP_TEXT_NODE</code>#starsNum1 ↔ <code>SPRITE_NODE</code></td></tr><tr data-scope="" data-search="15 sh-remote-wheelofstarsver2.cardsselectionscreen sceneintro@.object sibling-reorder 4x3, 3x2 15 root/0:render_states_node/0:container_node/2:sprite_node (3x2 vs 4x3): sprite_node ↔ button_node#gotitbtn"><td class="align-right">15</td><td class="align-left"><code>sh-remote-WheelOfStarsVer2.CardsSelectionScreen</code></td><td class="align-left"><code>sceneIntro@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">15</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/2:SPRITE_NODE</code> (3x2 vs 4x3): <code>SPRITE_NODE</code> ↔ <code>BUTTON_NODE</code>#gotItBtn</td></tr><tr data-scope="" data-search="16 sh-static-bottombar2023 scenepanel@.object sibling-reorder 4x3, 3x2, 5x3, 16x10, 16x9, 18x9, 19.5x9 555 root/0:render_states_node/0:container_node/0:container_node/5:bonuscontainer/0:centerbtn#centerbtn (3x2 vs 18x9): control_node#centerbtn ↔ widget_node#collectbonus"><td class="align-right">16</td><td class="align-left"><code>sh-static-BottomBar2023</code></td><td class="align-left"><code>scenePanel@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x10</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">555</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/0:CONTAINER_NODE/5:BonusContainer/0:CenterBtn#CenterBtn</code> (3x2 vs 18x9): <code>CONTROL_NODE</code>#CenterBtn ↔ <code>WIDGET_NODE</code>#CollectBonus</td></tr><tr data-scope="" data-search="17 sh-static-machinebadges sceneicon@.object sibling-reorder 4x3, 3x2 246 root/0:render_states_node/0:container_node/30:betindexindicator#betindexindicator (3x2 vs 4x3): sprite_node#betindexindicator ↔ control_node#bakeryspecialingredient"><td class="align-right">17</td><td class="align-left"><code>sh-static-MachineBadges</code></td><td class="align-left"><code>sceneIcon@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">246</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/30:BetIndexIndicator#BetIndexIndicator</code> (3x2 vs 4x3): <code>SPRITE_NODE</code>#BetIndexIndicator ↔ <code>CONTROL_NODE</code>#BakerySpecialIngredient</td></tr><tr data-scope="" data-search="18 sh-static-machinebadges sceneiconlong@.object sibling-reorder 4x3, 3x2 246 root/0:render_states_node/0:container_node/30:betindexindicator#betindexindicator (3x2 vs 4x3): sprite_node#betindexindicator ↔ control_node#bakeryspecialingredient"><td class="align-right">18</td><td class="align-left"><code>sh-static-MachineBadges</code></td><td class="align-left"><code>sceneIconLong@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">246</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/30:BetIndexIndicator#BetIndexIndicator</code> (3x2 vs 4x3): <code>SPRITE_NODE</code>#BetIndexIndicator ↔ <code>CONTROL_NODE</code>#BakerySpecialIngredient</td></tr><tr data-scope="" data-search="19 sh-static-popups.lobbypopups sceneawesometrs@.object sibling-reorder 4x3, 3x2 57 root/1:money/0:container_node/19:sprite_node (3x2 vs 4x3): sprite_node ↔ particle_node"><td class="align-right">19</td><td class="align-left"><code>sh-static-Popups.LobbyPopups</code></td><td class="align-left"><code>sceneAwesomeTrs@.object</code></td><td class="align-left"><code>sibling-reorder</code></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">57</td><td class="align-left"><code>root/1:money/0:CONTAINER_NODE/19:SPRITE_NODE</code> (3x2 vs 4x3): <code>SPRITE_NODE</code> ↔ <code>PARTICLE_NODE</code></td></tr></tbody></table></div>
+          <nav class="pager" aria-label="Page navigation">
+    <a class="pager-card pager-prev" href="./08-structural-empty-stub.html">
+            <span class="pager-dir">← Previous</span>
+            <span class="pager-title">08. Empty / Stub Variant</span>
+          </a>
+    <a class="pager-card pager-next" href="./10-structural-small-node-delta.html">
+            <span class="pager-dir">Next →</span>
+            <span class="pager-title">10. Small Node Delta (1–3)</span>
+          </a>
+  </nav>
+        </article>
+        <aside class="toc" aria-label="On this page">
+          <div class="toc-title">On this page</div>
+          <ul><li class="toc-l2"><a href="#1-what-defines-this-group">1. What Defines This Group</a></li><li class="toc-l2"><a href="#2-real-wbip-examples-side-by-side-trees">2. Real WBIP Examples (Side-by-Side Trees)</a></li><li class="toc-l3"><a href="#example-a-sub-case-9a-pure-wrapper-type-swap-sh-game675-slot-popups-coinsplash-scene-object">Example A (Sub-case 9a — Pure Wrapper-Type Swap): sh-game675.slot.popups.coinSplash — scene@.object</a></li><li class="toc-l3"><a href="#example-b-sub-case-9b-sibling-layer-reordering-sh-remote-clans-challenges-scenechallengearena-object">Example B (Sub-case 9b — Sibling Layer Reordering): sh-remote-Clans.Challenges — sceneChallengeArena@.object</a></li><li class="toc-l2"><a href="#3-potential-solution-reduce-to-1-scene">3. Potential Solution (Reduce to 1 Scene)</a></li><li class="toc-l3"><a href="#edge-cases-gotchas">Edge cases &amp; gotchas</a></li><li class="toc-l2"><a href="#4-complete-scene-list-19-groups">4. Complete Scene List (19 Groups)</a></li></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script src="./assets/search-index.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

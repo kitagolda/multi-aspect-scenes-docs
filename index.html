@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &amp; Diff Groups Index — Multi-Aspect WBIP Scenes Docs</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script>
+    (function() {
+      var t = localStorage.getItem("wbip-docs-theme");
+      if (t === "dark" || (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="mobile-topbar">
+    <button type="button" class="icon-btn" id="sidebar-open" aria-label="Open menu">☰</button>
+    <a href="./index.html" class="mobile-brand">Multi-Aspect WBIP Docs</a>
+    <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <a href="./index.html" class="brand-link">
+        <span class="brand-logo">@</span>
+        <span>
+          <strong>Multi-Aspect WBIP</strong>
+          <small>Scene Diff &amp; Reduction Docs</small>
+        </span>
+      </a>
+      <button class="icon-btn mobile-close" id="sidebar-close" aria-label="Close navigation">✕</button>
+    </div>
+    <div class="global-search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="global-search-input" placeholder="Search all 508 scenes..." autocomplete="off" aria-label="Search all scenes across all groups" />
+      <kbd>/</kbd>
+      <div class="global-search-results" id="global-search-results" hidden></div>
+    </div>
+    <nav class="sidebar-nav" aria-label="Diff groups">
+      <div class="nav-section-title">Documentation</div>
+      <a class="nav-item active" href="./index.html"><span class="nav-label">Overview &amp; Index</span><span class="nav-count badge-index">508</span></a>
+      <div class="nav-section-title">Same Node Tree (Groups 01–07)</div>
+      <a class="nav-item" href="./01-identical.html"><span class="nav-label"><span class="nav-num">01</span>Identical Trees &amp; FSM</span><span class="nav-count badge-trivial">47</span></a>
+      <a class="nav-item" href="./02-root-offset-only.html"><span class="nav-label"><span class="nav-num">02</span>Top-Level Offset / Bounds</span><span class="nav-count badge-easy">8</span></a>
+      <a class="nav-item" href="./03-root-uniform-scale-offset.html"><span class="nav-label"><span class="nav-num">03</span>Uniform Scale + Offset</span><span class="nav-count badge-easy">157</span></a>
+      <a class="nav-item" href="./04-prop-diff-1-to-5-nodes.html"><span class="nav-label"><span class="nav-num">04</span>1–5 Nodes Differ</span><span class="nav-count badge-medium">79</span></a>
+      <a class="nav-item" href="./05-prop-diff-many-nodes.html"><span class="nav-label"><span class="nav-num">05</span>&gt;5 Nodes Differ</span><span class="nav-count badge-medium">39</span></a>
+      <a class="nav-item" href="./06-fsm-actions-differ.html"><span class="nav-label"><span class="nav-num">06</span>FSM actionIndices Differ</span><span class="nav-count badge-medhard">66</span></a>
+      <a class="nav-item" href="./07-fsm-states-differ.html"><span class="nav-label"><span class="nav-num">07</span>FSM states Differ</span><span class="nav-count badge-medium">1</span></a>
+      <div class="nav-section-title">Structural Diffs (Groups 08–11)</div>
+      <a class="nav-item" href="./08-structural-empty-stub.html"><span class="nav-label"><span class="nav-num">08</span>Empty / Stub Variant</span><span class="nav-count badge-easy">2</span></a>
+      <a class="nav-item" href="./09-structural-wrapper-or-reorder.html"><span class="nav-label"><span class="nav-num">09</span>Reorder / Wrapper Swap</span><span class="nav-count badge-medhard">19</span></a>
+      <a class="nav-item" href="./10-structural-small-node-delta.html"><span class="nav-label"><span class="nav-num">10</span>Small Node Delta (1–3)</span><span class="nav-count badge-hard">29</span></a>
+      <a class="nav-item" href="./11-structural-large-divergence.html"><span class="nav-label"><span class="nav-num">11</span>Large Divergence (≥4)</span><span class="nav-count badge-hard">11</span></a>
+      <div class="nav-section-title">Orientation</div>
+      <a class="nav-item" href="./12-portrait-and-orientation.html"><span class="nav-label"><span class="nav-num">12</span>Portrait &amp; Orientation</span><span class="nav-count badge-mixed">113</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+        <span class="theme-icon">◐</span>
+        <span class="theme-label">Toggle Light / Dark</span>
+      </button>
+    </div>
+  </aside>
+    <main class="main">
+      <div class="content-grid">
+        <article class="article">
+          <div class="breadcrumb">
+            <a href="./index.html">Overview</a>
+            
+          </div>
+          <div class="page-header">
+          <div class="page-eyebrow">
+            <span class="badge badge-index">Overview</span>
+            <span class="eyebrow-count">508 multi-aspect groups · 2,858 WBIP packages</span>
+          </div>
+          <h1 id="multi-aspect-wbip-scenes-scene-object-diff-groups-single-tsx-reduction-guide">Multi-Aspect WBIP Scenes (<code>scene@.object</code>) — Diff Groups &amp; Single-TSX Reduction Guide</h1>
+        </div>
+<p>This multi-page reference breaks down <strong>every multi-aspect <code>scene@.object</code> group</strong> found across Slotomania's local WBIP corpus into <strong>12 focused diff groups</strong>, ordered from easiest to collapse (identical scenes requiring zero runtime logic) to hardest (structural subtree divergence and Portrait/Landscape orientation splits).</p>
+<p>Each group page provides:</p>
+<ol><li><strong>What defines the group</strong> and why Flash/WBIP exports produce it.</li><li><strong>Real side-by-side WBIP examples</strong> (node trees, property values, or FSM actions/states across aspects).</li><li><strong>Reduction strategy</strong> to collapse the group into a single <code>scene.object.tsx</code> (or when to fall back to lazy <code>@TsxScene</code> aspect lookup).</li><li><strong>Complete scene inventory</strong> listing every matching package and <code>scene@.object</code> pattern in the corpus.</li></ol>
+<div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-val">2,858</div>
+      <div class="kpi-label">WBIP Packages Scanned</div>
+      <div class="kpi-sub">337 packages (11.8%) have multi-aspect scenes</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">508</div>
+      <div class="kpi-label">Multi-Aspect Scene Groups</div>
+      <div class="kpi-sub">1,859 of 6,026 total scenes (30.8%)</div>
+    </div>
+    <div class="kpi-card kpi-accent-green">
+      <div class="kpi-val">86.7%</div>
+      <div class="kpi-label">Exact Same Node Tree</div>
+      <div class="kpi-sub">397 / 458 landscape groups (Groups 01–07)</div>
+    </div>
+    <div class="kpi-card kpi-accent-red">
+      <div class="kpi-val">2.4%</div>
+      <div class="kpi-label">Large Structural Splits</div>
+      <div class="kpi-sub">Only 11 / 458 landscape groups (Group 11)</div>
+    </div>
+  </div>
+  <div class="dist-card" id="dist-card">
+    <div class="dist-header">
+      <div>
+        <div class="dist-title">Landscape Multi-Aspect Distribution (458 Groups)</div>
+        <div class="dist-subtitle">Click any block, bar, or legend item to open that diff group's page, side-by-side WBIP examples, and full scene list.</div>
+      </div>
+      <div class="chart-tabs" role="tablist" aria-label="Chart view">
+        <button type="button" class="chart-tab active" data-chart-tab="columns" role="tab" aria-selected="true">Column Blocks</button>
+        <button type="button" class="chart-tab" data-chart-tab="bars" role="tab" aria-selected="false">Horizontal Bars</button>
+        <button type="button" class="chart-tab" data-chart-tab="waffle" role="tab" aria-selected="false">100-Block Grid</button>
+      </div>
+    </div>
+    <div class="chart-panel active" data-chart-panel="columns">
+  <div class="col-zone-labels">
+    <span class="zone-same">Same Node Tree · 397 groups (86.7%)</span>
+    <span class="zone-struct">Structural · 61 (13.3%)</span>
+  </div>
+  <div class="col-chart-wrap">
+    <div class="col-gridlines" aria-hidden="true">
+      <div class="col-gridline"><span>160</span></div>
+      <div class="col-gridline"><span>120</span></div>
+      <div class="col-gridline"><span>80</span></div>
+      <div class="col-gridline"><span>40</span></div>
+      <div class="col-gridline"><span>0</span></div>
+    </div>
+    <div class="col-bars"><a href="./01-identical.html" class="col-item" data-group="01" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)">
+    <div class="col-bar-area">
+      <div class="col-val">47</div>
+      <div class="col-bar" style="height:29.38%;background:#10b981"></div>
+    </div>
+    <div class="col-num">01</div>
+    <div class="col-sub">Identical</div>
+  </a>
+<a href="./02-root-offset-only.html" class="col-item" data-group="02" title="Group 02: Top-Level Offset / Bounds — 8 groups (1.7%)">
+    <div class="col-bar-area">
+      <div class="col-val">8</div>
+      <div class="col-bar" style="height:5.00%;background:#22c55e"></div>
+    </div>
+    <div class="col-num">02</div>
+    <div class="col-sub">Offset</div>
+  </a>
+<a href="./03-root-uniform-scale-offset.html" class="col-item" data-group="03" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)">
+    <div class="col-bar-area">
+      <div class="col-val">157</div>
+      <div class="col-bar" style="height:98.13%;background:#34d399"></div>
+    </div>
+    <div class="col-num">03</div>
+    <div class="col-sub">Scale+Off</div>
+  </a>
+<a href="./04-prop-diff-1-to-5-nodes.html" class="col-item" data-group="04" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)">
+    <div class="col-bar-area">
+      <div class="col-val">79</div>
+      <div class="col-bar" style="height:49.38%;background:#3b82f6"></div>
+    </div>
+    <div class="col-num">04</div>
+    <div class="col-sub">1–5 Nodes</div>
+  </a>
+<a href="./05-prop-diff-many-nodes.html" class="col-item" data-group="05" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)">
+    <div class="col-bar-area">
+      <div class="col-val">39</div>
+      <div class="col-bar" style="height:24.38%;background:#60a5fa"></div>
+    </div>
+    <div class="col-num">05</div>
+    <div class="col-sub">>5 Nodes</div>
+  </a>
+<a href="./06-fsm-actions-differ.html" class="col-item" data-group="06" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)">
+    <div class="col-bar-area">
+      <div class="col-val">66</div>
+      <div class="col-bar" style="height:41.25%;background:#f59e0b"></div>
+    </div>
+    <div class="col-num">06</div>
+    <div class="col-sub">FSM Act</div>
+  </a>
+<a href="./07-fsm-states-differ.html" class="col-item" data-group="07" title="Group 07: FSM states Differ — 1 groups (0.2%)">
+    <div class="col-bar-area">
+      <div class="col-val">1</div>
+      <div class="col-bar" style="height:0.63%;background:#fbbf24"></div>
+    </div>
+    <div class="col-num">07</div>
+    <div class="col-sub">FSM State</div>
+  </a>
+<div class="col-divider" title="Same Node Tree (01–07) vs Structural Diffs (08–11)"></div><a href="./08-structural-empty-stub.html" class="col-item" data-group="08" title="Group 08: Empty / Stub Variant — 2 groups (0.4%)">
+    <div class="col-bar-area">
+      <div class="col-val">2</div>
+      <div class="col-bar" style="height:1.25%;background:#14b8a6"></div>
+    </div>
+    <div class="col-num">08</div>
+    <div class="col-sub">Stub</div>
+  </a>
+<a href="./09-structural-wrapper-or-reorder.html" class="col-item" data-group="09" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.1%)">
+    <div class="col-bar-area">
+      <div class="col-val">19</div>
+      <div class="col-bar" style="height:11.88%;background:#f97316"></div>
+    </div>
+    <div class="col-num">09</div>
+    <div class="col-sub">Reorder</div>
+  </a>
+<a href="./10-structural-small-node-delta.html" class="col-item" data-group="10" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)">
+    <div class="col-bar-area">
+      <div class="col-val">29</div>
+      <div class="col-bar" style="height:18.13%;background:#ef4444"></div>
+    </div>
+    <div class="col-num">10</div>
+    <div class="col-sub">1–3 Delta</div>
+  </a>
+<a href="./11-structural-large-divergence.html" class="col-item" data-group="11" title="Group 11: Large Divergence (≥4) — 11 groups (2.4%)">
+    <div class="col-bar-area">
+      <div class="col-val">11</div>
+      <div class="col-bar" style="height:6.88%;background:#dc2626"></div>
+    </div>
+    <div class="col-num">11</div>
+    <div class="col-sub">≥4 Delta</div>
+  </a></div>
+  </div>
+</div>
+    <div class="chart-panel" data-chart-panel="bars">
+  <div class="hbar-chart"><a href="./01-identical.html" class="hbar-row" data-group="01">
+    <span class="hbar-label"><span class="hbar-num">01</span> Identical Trees & FSM</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:29.94%;background:#10b981"></span></span>
+    <span class="hbar-val">47 <small>(10.3%)</small></span>
+  </a>
+<a href="./02-root-offset-only.html" class="hbar-row" data-group="02">
+    <span class="hbar-label"><span class="hbar-num">02</span> Top-Level Offset / Bounds</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:5.10%;background:#22c55e"></span></span>
+    <span class="hbar-val">8 <small>(1.7%)</small></span>
+  </a>
+<a href="./03-root-uniform-scale-offset.html" class="hbar-row" data-group="03">
+    <span class="hbar-label"><span class="hbar-num">03</span> Uniform Scale + Offset</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:100.00%;background:#34d399"></span></span>
+    <span class="hbar-val">157 <small>(34.3%)</small></span>
+  </a>
+<a href="./04-prop-diff-1-to-5-nodes.html" class="hbar-row" data-group="04">
+    <span class="hbar-label"><span class="hbar-num">04</span> 1–5 Nodes Differ</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:50.32%;background:#3b82f6"></span></span>
+    <span class="hbar-val">79 <small>(17.2%)</small></span>
+  </a>
+<a href="./05-prop-diff-many-nodes.html" class="hbar-row" data-group="05">
+    <span class="hbar-label"><span class="hbar-num">05</span> >5 Nodes Differ</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:24.84%;background:#60a5fa"></span></span>
+    <span class="hbar-val">39 <small>(8.5%)</small></span>
+  </a>
+<a href="./06-fsm-actions-differ.html" class="hbar-row" data-group="06">
+    <span class="hbar-label"><span class="hbar-num">06</span> FSM actionIndices Differ</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:42.04%;background:#f59e0b"></span></span>
+    <span class="hbar-val">66 <small>(14.4%)</small></span>
+  </a>
+<a href="./07-fsm-states-differ.html" class="hbar-row" data-group="07">
+    <span class="hbar-label"><span class="hbar-num">07</span> FSM states Differ</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:0.64%;background:#fbbf24"></span></span>
+    <span class="hbar-val">1 <small>(0.2%)</small></span>
+  </a>
+<a href="./08-structural-empty-stub.html" class="hbar-row" data-group="08">
+    <span class="hbar-label"><span class="hbar-num">08</span> Empty / Stub Variant</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:1.27%;background:#14b8a6"></span></span>
+    <span class="hbar-val">2 <small>(0.4%)</small></span>
+  </a>
+<a href="./09-structural-wrapper-or-reorder.html" class="hbar-row" data-group="09">
+    <span class="hbar-label"><span class="hbar-num">09</span> Reorder / Wrapper Swap</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:12.10%;background:#f97316"></span></span>
+    <span class="hbar-val">19 <small>(4.1%)</small></span>
+  </a>
+<a href="./10-structural-small-node-delta.html" class="hbar-row" data-group="10">
+    <span class="hbar-label"><span class="hbar-num">10</span> Small Node Delta (1–3)</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:18.47%;background:#ef4444"></span></span>
+    <span class="hbar-val">29 <small>(6.3%)</small></span>
+  </a>
+<a href="./11-structural-large-divergence.html" class="hbar-row" data-group="11">
+    <span class="hbar-label"><span class="hbar-num">11</span> Large Divergence (≥4)</span>
+    <span class="hbar-track"><span class="hbar-fill" style="width:7.01%;background:#dc2626"></span></span>
+    <span class="hbar-val">11 <small>(2.4%)</small></span>
+  </a></div>
+</div>
+    <div class="chart-panel" data-chart-panel="waffle">
+  <div class="waffle-wrap">
+    <div class="waffle-grid" role="img" aria-label="100-block waffle chart of 458 landscape multi-aspect groups"><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./01-identical.html" class="waffle-cell" data-group="01" style="background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.3%)"></a><a href="./02-root-offset-only.html" class="waffle-cell" data-group="02" style="background:#22c55e" title="Group 02: Top-Level Offset / Bounds — 8 groups (1.7%)"></a><a href="./02-root-offset-only.html" class="waffle-cell" data-group="02" style="background:#22c55e" title="Group 02: Top-Level Offset / Bounds — 8 groups (1.7%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./03-root-uniform-scale-offset.html" class="waffle-cell" data-group="03" style="background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.3%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="waffle-cell" data-group="04" style="background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.2%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./05-prop-diff-many-nodes.html" class="waffle-cell" data-group="05" style="background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.5%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./06-fsm-actions-differ.html" class="waffle-cell" data-group="06" style="background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.4%)"></a><a href="./07-fsm-states-differ.html" class="waffle-cell" data-group="07" style="background:#fbbf24" title="Group 07: FSM states Differ — 1 groups (0.2%)"></a><a href="./08-structural-empty-stub.html" class="waffle-cell" data-group="08" style="background:#14b8a6" title="Group 08: Empty / Stub Variant — 2 groups (0.4%)"></a><a href="./09-structural-wrapper-or-reorder.html" class="waffle-cell" data-group="09" style="background:#f97316" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.1%)"></a><a href="./09-structural-wrapper-or-reorder.html" class="waffle-cell" data-group="09" style="background:#f97316" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.1%)"></a><a href="./09-structural-wrapper-or-reorder.html" class="waffle-cell" data-group="09" style="background:#f97316" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.1%)"></a><a href="./09-structural-wrapper-or-reorder.html" class="waffle-cell" data-group="09" style="background:#f97316" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.1%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./10-structural-small-node-delta.html" class="waffle-cell" data-group="10" style="background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.3%)"></a><a href="./11-structural-large-divergence.html" class="waffle-cell" data-group="11" style="background:#dc2626" title="Group 11: Large Divergence (≥4) — 11 groups (2.4%)"></a><a href="./11-structural-large-divergence.html" class="waffle-cell" data-group="11" style="background:#dc2626" title="Group 11: Large Divergence (≥4) — 11 groups (2.4%)"></a></div>
+    <div class="waffle-note">Each block ≈ <strong>1%</strong> (~4.6 groups; groups &lt;1% shown as 1 block for visibility). Hover any block or legend item to highlight its group.</div>
+  </div>
+</div>
+    <div class="dist-strip-wrap">
+      <div class="dist-bar"><a href="./01-identical.html" class="dist-seg" data-group="01" style="width:10.26%;background:#10b981" title="Group 01: Identical Trees & FSM — 47 groups (10.26%)"></a><a href="./02-root-offset-only.html" class="dist-seg" data-group="02" style="width:1.75%;background:#22c55e" title="Group 02: Top-Level Offset / Bounds — 8 groups (1.75%)"></a><a href="./03-root-uniform-scale-offset.html" class="dist-seg" data-group="03" style="width:34.28%;background:#34d399" title="Group 03: Uniform Scale + Offset — 157 groups (34.28%)"></a><a href="./04-prop-diff-1-to-5-nodes.html" class="dist-seg" data-group="04" style="width:17.25%;background:#3b82f6" title="Group 04: 1–5 Nodes Differ — 79 groups (17.25%)"></a><a href="./05-prop-diff-many-nodes.html" class="dist-seg" data-group="05" style="width:8.52%;background:#60a5fa" title="Group 05: >5 Nodes Differ — 39 groups (8.52%)"></a><a href="./06-fsm-actions-differ.html" class="dist-seg" data-group="06" style="width:14.41%;background:#f59e0b" title="Group 06: FSM actionIndices Differ — 66 groups (14.41%)"></a><a href="./07-fsm-states-differ.html" class="dist-seg" data-group="07" style="width:0.22%;background:#fbbf24" title="Group 07: FSM states Differ — 1 groups (0.22%)"></a><a href="./08-structural-empty-stub.html" class="dist-seg" data-group="08" style="width:0.44%;background:#14b8a6" title="Group 08: Empty / Stub Variant — 2 groups (0.44%)"></a><a href="./09-structural-wrapper-or-reorder.html" class="dist-seg" data-group="09" style="width:4.15%;background:#f97316" title="Group 09: Reorder / Wrapper Swap — 19 groups (4.15%)"></a><a href="./10-structural-small-node-delta.html" class="dist-seg" data-group="10" style="width:6.33%;background:#ef4444" title="Group 10: Small Node Delta (1–3) — 29 groups (6.33%)"></a><a href="./11-structural-large-divergence.html" class="dist-seg" data-group="11" style="width:2.40%;background:#dc2626" title="Group 11: Large Divergence (≥4) — 11 groups (2.40%)"></a></div>
+      <div class="dist-pill">46.3% trivial/top-level fit · 40.4% same-tree diffs · 13.3% structural</div>
+    </div>
+    <div class="dist-legend"><a href="./01-identical.html" class="dist-legend-item" data-group="01">
+    <span class="dist-dot" style="background:#10b981"></span>
+    <span class="dist-name">01. Identical Trees & FSM</span>
+    <span class="dist-val">47 <small>(10.3%)</small></span>
+  </a><a href="./02-root-offset-only.html" class="dist-legend-item" data-group="02">
+    <span class="dist-dot" style="background:#22c55e"></span>
+    <span class="dist-name">02. Top-Level Offset / Bounds</span>
+    <span class="dist-val">8 <small>(1.7%)</small></span>
+  </a><a href="./03-root-uniform-scale-offset.html" class="dist-legend-item" data-group="03">
+    <span class="dist-dot" style="background:#34d399"></span>
+    <span class="dist-name">03. Uniform Scale + Offset</span>
+    <span class="dist-val">157 <small>(34.3%)</small></span>
+  </a><a href="./04-prop-diff-1-to-5-nodes.html" class="dist-legend-item" data-group="04">
+    <span class="dist-dot" style="background:#3b82f6"></span>
+    <span class="dist-name">04. 1–5 Nodes Differ</span>
+    <span class="dist-val">79 <small>(17.2%)</small></span>
+  </a><a href="./05-prop-diff-many-nodes.html" class="dist-legend-item" data-group="05">
+    <span class="dist-dot" style="background:#60a5fa"></span>
+    <span class="dist-name">05. >5 Nodes Differ</span>
+    <span class="dist-val">39 <small>(8.5%)</small></span>
+  </a><a href="./06-fsm-actions-differ.html" class="dist-legend-item" data-group="06">
+    <span class="dist-dot" style="background:#f59e0b"></span>
+    <span class="dist-name">06. FSM actionIndices Differ</span>
+    <span class="dist-val">66 <small>(14.4%)</small></span>
+  </a><a href="./07-fsm-states-differ.html" class="dist-legend-item" data-group="07">
+    <span class="dist-dot" style="background:#fbbf24"></span>
+    <span class="dist-name">07. FSM states Differ</span>
+    <span class="dist-val">1 <small>(0.2%)</small></span>
+  </a><a href="./08-structural-empty-stub.html" class="dist-legend-item" data-group="08">
+    <span class="dist-dot" style="background:#14b8a6"></span>
+    <span class="dist-name">08. Empty / Stub Variant</span>
+    <span class="dist-val">2 <small>(0.4%)</small></span>
+  </a><a href="./09-structural-wrapper-or-reorder.html" class="dist-legend-item" data-group="09">
+    <span class="dist-dot" style="background:#f97316"></span>
+    <span class="dist-name">09. Reorder / Wrapper Swap</span>
+    <span class="dist-val">19 <small>(4.1%)</small></span>
+  </a><a href="./10-structural-small-node-delta.html" class="dist-legend-item" data-group="10">
+    <span class="dist-dot" style="background:#ef4444"></span>
+    <span class="dist-name">10. Small Node Delta (1–3)</span>
+    <span class="dist-val">29 <small>(6.3%)</small></span>
+  </a><a href="./11-structural-large-divergence.html" class="dist-legend-item" data-group="11">
+    <span class="dist-dot" style="background:#dc2626"></span>
+    <span class="dist-name">11. Large Divergence (≥4)</span>
+    <span class="dist-val">11 <small>(2.4%)</small></span>
+  </a></div>
+  </div>
+<h2 id="corpus-snapshot"><a class="anchor" href="#corpus-snapshot" aria-hidden="true">#</a>Corpus Snapshot</h2>
+<div class="callout"><strong>Source:</strong> Offline scan of <strong><code>2,858</code></strong> unique WBIP packages (<strong><code>6,026</code></strong> total <code>scenesV3</code> entries) from <code>slotomania-ts/resources/artifacts</code> (preferring <code>1136x640</code>, latest build per package).</div>
+<div class="table-wrap"><table id="tbl-index-1" class=""><thead><tr><th class="align-left">Metric</th><th class="align-right">Count</th><th class="align-right">Share</th></tr></thead><tbody><tr data-scope="" data-search="unique wbip packages scanned 2,858 100%"><td class="align-left">Unique WBIP packages scanned</td><td class="align-right"><code>2,858</code></td><td class="align-right"><code>100%</code></td></tr><tr data-scope="" data-search="packages containing multi-aspect (scene@.object) groups 337 11.8%"><td class="align-left">Packages containing multi-aspect (<code>scene@.object</code>) groups</td><td class="align-right"><code>337</code></td><td class="align-right"><code>11.8%</code></td></tr><tr data-scope="" data-search="total scenesv3 entries 6,026 100%"><td class="align-left">Total <code>scenesV3</code> entries</td><td class="align-right"><code>6,026</code></td><td class="align-right"><code>100%</code></td></tr><tr data-scope="" data-search="single-aspect scenes (no @ variants) 4,167 69.2%"><td class="align-left">Single-aspect scenes (no <code>@</code> variants)</td><td class="align-right"><code>4,167</code></td><td class="align-right"><code>69.2%</code></td></tr><tr data-scope="" data-search="multi-aspect scene entries (508 groups) 1,859 30.8%"><td class="align-left">Multi-aspect scene entries (<code>508</code> groups)</td><td class="align-right"><code>1,859</code></td><td class="align-right"><code>30.8%</code></td></tr><tr data-scope="" data-search="landscape multi-aspect groups (&gt;=2 landscape variants, groups 01–11) 458 90.2% of 508"><td class="align-left">Landscape multi-aspect groups (<code>&gt;=2</code> landscape variants, Groups 01–11)</td><td class="align-right"><code>458</code></td><td class="align-right"><code>90.2%</code> of <code>508</code></td></tr><tr data-scope="" data-search="groups containing *portrait variants (group 12) 113 22.2% of 508"><td class="align-left">Groups containing <code>*Portrait</code> variants (Group 12)</td><td class="align-right"><code>113</code></td><td class="align-right"><code>22.2%</code> of <code>508</code></td></tr></tbody></table></div>
+<p><em>Note on overlap:</em> <code>63</code> groups have both <code>&gt;=2</code> landscape variants <strong>and</strong> <code>&gt;=1</code> portrait variant, so their landscape comparison is listed in Groups 01–11 and their orientation comparison is listed in Group 12. The remaining <code>47</code> (1 landscape + portrait) and <code>3</code> (portrait-only) groups appear exclusively in Group 12 (<code>458 + 47 + 3 = 508</code>).</p>
+<hr class="section-divider" />
+<h2 id="diff-groups-directory-ordered-easiest-hardest"><a class="anchor" href="#diff-groups-directory-ordered-easiest-hardest" aria-hidden="true">#</a>Diff Groups Directory (Ordered Easiest → Hardest)</h2>
+<div class="table-wrap"><table id="tbl-index-2" class=""><thead><tr><th class="align-left">#</th><th class="align-left">Page / Diff Group</th><th class="align-right">Groups</th><th class="align-right">% of 458 Landscape</th><th class="align-left">Difficulty</th><th class="align-left">Target Reduction Strategy</th></tr></thead><tbody><tr data-scope="" data-search="01 **[identical trees &amp; fsm](./01-identical.md)** 47 10.3% trivial drop duplicates; emit **1 scene.object.tsx** + 1 wbipscenev3. zero runtime logic."><td class="align-left">01</td><td class="align-left"><strong><a href="./01-identical.html">Identical Trees &amp; FSM</a></strong></td><td class="align-right"><code>47</code></td><td class="align-right"><code>10.3%</code></td><td class="align-left"><span class="badge badge-trivial">Trivial</span></td><td class="align-left">Drop duplicates; emit <strong>1 <code>scene.object.tsx</code></strong> + 1 <code>WbipSceneV3</code>. Zero runtime logic.</td></tr><tr data-scope="" data-search="02 **[top-level offset / bounds only](./02-root-offset-only.md)** 8 1.7% easy **1 scene.object.tsx** with dynamic screen.design offset or root bounds override."><td class="align-left">02</td><td class="align-left"><strong><a href="./02-root-offset-only.html">Top-Level Offset / Bounds Only</a></strong></td><td class="align-right"><code>8</code></td><td class="align-right"><code>1.7%</code></td><td class="align-left"><span class="badge badge-easy">Easy</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> with dynamic <code>screen.design</code> offset or root <code>Bounds</code> override.</td></tr><tr data-scope="" data-search="03 **[top-level uniform scale + centering offset](./03-root-uniform-scale-offset.md)** 157 34.3% easy **1 scene.object.tsx** wrapped in a non-fsm responsive uniform-fit + centering container."><td class="align-left">03</td><td class="align-left"><strong><a href="./03-root-uniform-scale-offset.html">Top-Level Uniform Scale + Centering Offset</a></strong></td><td class="align-right"><code>157</code></td><td class="align-right"><code>34.3%</code></td><td class="align-left"><span class="badge badge-easy">Easy</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> wrapped in a non-FSM responsive uniform-fit + centering container.</td></tr><tr data-scope="" data-search="04 **[same tree &amp; fsm, 1–5 nodes differ](./04-prop-diff-1-to-5-nodes.md)** 79 17.2% medium **1 scene.object.tsx** using edge/cover primitives (screenalignmentnode, projectionboundsnode) + compact byaspect(...) prop map."><td class="align-left">04</td><td class="align-left"><strong><a href="./04-prop-diff-1-to-5-nodes.html">Same Tree &amp; FSM, 1–5 Nodes Differ</a></strong></td><td class="align-right"><code>79</code></td><td class="align-right"><code>17.2%</code></td><td class="align-left"><span class="badge badge-medium">Medium</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> using edge/cover primitives (<code>ScreenAlignmentNode</code>, <code>ProjectionBoundsNode</code>) + compact <code>byAspect(...)</code> prop map.</td></tr><tr data-scope="" data-search="05 **[same tree &amp; fsm, &gt;5 nodes differ](./05-prop-diff-many-nodes.md)** 39 8.5% medium **1 scene.object.tsx** + generated per-aspect property override table keyed by flatindex / node id."><td class="align-left">05</td><td class="align-left"><strong><a href="./05-prop-diff-many-nodes.html">Same Tree &amp; FSM, &gt;5 Nodes Differ</a></strong></td><td class="align-right"><code>39</code></td><td class="align-right"><code>8.5%</code></td><td class="align-left"><span class="badge badge-medium">Medium</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> + generated per-aspect property override table keyed by <code>flatIndex</code> / node <code>id</code>.</td></tr><tr data-scope="" data-search="06 **[same tree, fsm actionindices differ](./06-fsm-actions-differ.md)** 66 14.4% medium–hard **1 scene.object.tsx** (flatindices match); strip dead actions, convert baked tween coords to relative offsets, or keep compact per-ar fsm entries."><td class="align-left">06</td><td class="align-left"><strong><a href="./06-fsm-actions-differ.html">Same Tree, FSM <code>actionIndices</code> Differ</a></strong></td><td class="align-right"><code>66</code></td><td class="align-right"><code>14.4%</code></td><td class="align-left"><span class="badge badge-medhard">Medium–Hard</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> (<code>flatIndices</code> match); strip dead actions, convert baked tween coords to relative offsets, or keep compact per-AR FSM entries.</td></tr><tr data-scope="" data-search="07 **[same tree, fsm states count differs](./07-fsm-states-differ.md)** 1 0.2% medium **1 scene.object.tsx**; unify the single extra _hover_up button state (or share 1 .tsx across per-ar fsms)."><td class="align-left">07</td><td class="align-left"><strong><a href="./07-fsm-states-differ.html">Same Tree, FSM <code>states</code> Count Differs</a></strong></td><td class="align-right"><code>1</code></td><td class="align-right"><code>0.2%</code></td><td class="align-left"><span class="badge badge-medium">Medium</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong>; unify the single extra <code>_hover_up</code> button state (or share 1 <code>.tsx</code> across per-AR FSMs).</td></tr><tr data-scope="" data-search="08 **[structural: empty / stub variant](./08-structural-empty-stub.md)** 2 0.4% easy **1 scene.object.tsx** hiding the 2 ipad-only (4x3) filler sprites on wider aspects."><td class="align-left">08</td><td class="align-left"><strong><a href="./08-structural-empty-stub.html">Structural: Empty / Stub Variant</a></strong></td><td class="align-right"><code>2</code></td><td class="align-right"><code>0.4%</code></td><td class="align-left"><span class="badge badge-easy">Easy</span></td><td class="align-left"><strong>1 <code>scene.object.tsx</code></strong> hiding the 2 iPad-only (<code>4x3</code>) filler sprites on wider aspects.</td></tr><tr data-scope="" data-search="09 **[structural: same node count — sibling reorder or wrapper swap](./09-structural-wrapper-or-reorder.md)** 19 4.1% medium–hard normalize wrapper type (1 group) or unify sibling layer order / draworder (18 groups) into **1 scene.object.tsx**."><td class="align-left">09</td><td class="align-left"><strong><a href="./09-structural-wrapper-or-reorder.html">Structural: Same Node Count — Sibling Reorder or Wrapper Swap</a></strong></td><td class="align-right"><code>19</code></td><td class="align-right"><code>4.1%</code></td><td class="align-left"><span class="badge badge-medhard">Medium–Hard</span></td><td class="align-left">Normalize wrapper type (<code>1</code> group) or unify sibling layer order / <code>DrawOrder</code> (<code>18</code> groups) into <strong>1 <code>scene.object.tsx</code></strong>.</td></tr><tr data-scope="" data-search="10 **[structural: small node delta (1–3 nodes)](./10-structural-small-node-delta.md)** 29 6.3% hard drop stray dead nodes or build a **union tree in 1 .tsx** with hidden={true} on unused ars; fallback to @tsxscene ar map."><td class="align-left">10</td><td class="align-left"><strong><a href="./10-structural-small-node-delta.html">Structural: Small Node Delta (1–3 Nodes)</a></strong></td><td class="align-right"><code>29</code></td><td class="align-right"><code>6.3%</code></td><td class="align-left"><span class="badge badge-hard">Hard</span></td><td class="align-left">Drop stray dead nodes or build a <strong>union tree in 1 <code>.tsx</code></strong> with <code>Hidden={true}</code> on unused ARs; fallback to <code>@TsxScene</code> AR map.</td></tr><tr data-scope="" data-search="11 **[structural: larger subtree divergence (≥4 nodes)](./11-structural-large-divergence.md)** 11 2.4% hard / fallback keep separate .tsx files via lazy @tsxscene ar map, or manually refactor localized differing subtrees during migration."><td class="align-left">11</td><td class="align-left"><strong><a href="./11-structural-large-divergence.html">Structural: Larger Subtree Divergence (≥4 Nodes)</a></strong></td><td class="align-right"><code>11</code></td><td class="align-right"><code>2.4%</code></td><td class="align-left"><span class="badge badge-hard">Hard / Fallback</span></td><td class="align-left">Keep separate <code>.tsx</code> files via lazy <code>@TsxScene</code> AR map, or manually refactor localized differing subtrees during migration.</td></tr><tr data-scope="" data-search="12 **[portrait &amp; orientation splits](./12-portrait-and-orientation.md)** 113 *n/a (orientation)* mixed collapse 3 portrait-only + 84 same-tree pairs via orientation-aware byaspect; keep 26 structural splits on @tsxscene map."><td class="align-left">12</td><td class="align-left"><strong><a href="./12-portrait-and-orientation.html">Portrait &amp; Orientation Splits</a></strong></td><td class="align-right"><code>113</code></td><td class="align-right"><em>n/a (orientation)</em></td><td class="align-left"><span class="badge badge-mixed">Mixed</span></td><td class="align-left">Collapse <code>3</code> Portrait-only + <code>84</code> same-tree pairs via orientation-aware <code>byAspect</code>; keep <code>26</code> structural splits on <code>@TsxScene</code> map.</td></tr></tbody></table></div>
+<div class="callout"><strong>Bottom line for landscape scenes:</strong> <strong><code>397</code> of <code>458</code> groups (<code>86.7%</code>)</strong> have an <strong>exact identical node tree</strong>, and <strong><code>212</code> (<code>46.3%</code>)</strong> need at most a top-level offset or uniform scale wrapper. Only <strong><code>11</code> (<code>2.4%</code>)</strong> have a <code>&gt;=4</code>-node landscape structural divergence.</div>
+<p><em>Refinement note vs. earlier single-page analysis:</em> Deep tree inspection revealed that 5 groups previously bucketed as &quot;wrapper-type swaps&quot; actually had different total node counts masked by an early-exit root/parent type diff. Here they are classified accurately by true node delta: <code>1</code> moved to Group 10 (<code>SlotoCardsVer2.Album.Set</code>, delta <code>1</code>) and <code>4</code> moved to Group 11 (<code>ComebackReward.Popups.Purchase</code>, <code>Dashes.DashMaxPurchasePopup</code>, <code>SlotoCardsVer2.Album18</code>, <code>SlotoHeroes.SlotoFigz.Shop</code>).</p>
+<hr class="section-divider" />
+<h2 id="shared-runtime-contract-required-even-for-1-collapsed-tsx"><a class="anchor" href="#shared-runtime-contract-required-even-for-1-collapsed-tsx" aria-hidden="true">#</a>Shared Runtime Contract (Required Even for 1 Collapsed <code>.tsx</code>)</h2>
+<p>Even when all aspect variants collapse into a single <code>scene.object.tsx</code>, two runtime seams still probe aspect-suffixed names:</p>
+<ol><li><strong><code>ScenePathResolver</code> → <code>MultiPathSceneFactory</code></strong> (<code>slotomania-ts</code>): probes <code>scene4x3.object</code>, <code>scene3x2.object</code>, <code>scene16x9.object</code>, etc., in <code>ScreenSettings.supportedAspectTypesByProximity</code> order.</li><li><strong><code>SceneBuilder.buildScene</code></strong> (<code>@playtika/pixi</code>): resolves <code>tsxModule</code> for the probed <code>sceneName</code>, then looks up <code>resource.data.scenesV3.get(resolvedSceneName)</code> inside <code>package.prefab</code> to bind FSM states, actions, rules, transitions, and <code>flatIndices</code>.</li></ol>
+<p>The <code>tsx-aspect-lookup</code> foundation enables both single-<code>.tsx</code> collapsing and multi-<code>.tsx</code> fallback cleanly:</p>
+<ul><li><strong>Canonical <code>sceneName</code> export:</strong> <code>TsxSceneModule</code> exports <code>export const sceneName = &quot;scene3x2.object&quot;;</code> so <code>SceneBuilder</code> binds FSM data via <code>resource.data.scenesV3.get(tsxModule.sceneName ?? sceneName)</code> even when probed under another aspect name.</li><li><strong>Lazy proximity lookup:</strong> <code>setTsxSceneAspectResolver</code> + <code>selectTsxSceneForPattern</code> / <code>selectTsxSceneNamesToLoad</code> ensure only the <strong>single closest</strong> aspect module is downloaded for any uncollapsed multi-<code>.tsx</code> group (Groups 10, 11, and structural Portrait splits).</li></ul>
+<hr class="section-divider" />
+<h2 id="recommended-4-phase-rollout"><a class="anchor" href="#recommended-4-phase-rollout" aria-hidden="true">#</a>Recommended 4-Phase Rollout</h2>
+<div class="table-wrap"><table id="tbl-index-3" class=""><thead><tr><th class="align-left">Phase</th><th class="align-left">Target Groups</th><th class="align-right">Coverage (Landscape)</th><th class="align-left">Key Work</th></tr></thead><tbody><tr data-scope="" data-search="**phase 1: runtime &amp; @tsxscene foundation** all (enabler) unlocks all tsxscenemodule.scenename, proximity resolver in tsxsceneregistry, responsive fit wrapper &amp; byaspect helper in @playtika/pixi."><td class="align-left"><strong>Phase 1: Runtime &amp; <code>@TsxScene</code> Foundation</strong></td><td class="align-left">All (enabler)</td><td class="align-right">Unlocks all</td><td class="align-left"><code>TsxSceneModule.sceneName</code>, proximity resolver in <code>TsxSceneRegistry</code>, responsive fit wrapper &amp; <code>byAspect</code> helper in <code>@playtika/pixi</code>.</td></tr><tr data-scope="" data-search="**phase 2: auto-collapse simple groups** groups **01, 02, 03, 08** + portrait-only **46.7%** (214/458) auto-collapse in wbip-processor; verify offline headless transform/bounds parity across the corpus."><td class="align-left"><strong>Phase 2: Auto-Collapse Simple Groups</strong></td><td class="align-left">Groups <strong>01, 02, 03, 08</strong> + Portrait-only</td><td class="align-right"><strong><code>46.7%</code></strong> (<code>214/458</code>)</td><td class="align-left">Auto-collapse in <code>wbip-processor</code>; verify offline headless transform/bounds parity across the corpus.</td></tr><tr data-scope="" data-search="**phase 3: same-tree multi-node &amp; fsm collapsing** groups **04, 05, 06, 07** **+40.4%** (reaches **87.1%**) diff engine emitting byaspect prop maps, screenalignmentnode/projectionboundsnode, and fsm action dedup / relative-offset conversion."><td class="align-left"><strong>Phase 3: Same-Tree Multi-Node &amp; FSM Collapsing</strong></td><td class="align-left">Groups <strong>04, 05, 06, 07</strong></td><td class="align-right"><strong>+<code>40.4%</code></strong> (reaches <strong><code>87.1%</code></strong>)</td><td class="align-left">Diff engine emitting <code>byAspect</code> prop maps, <code>ScreenAlignmentNode</code>/<code>ProjectionBoundsNode</code>, and FSM action dedup / relative-offset conversion.</td></tr><tr data-scope="" data-search="**phase 4: structural &amp; orientation splits** groups **09, 10, 11, 12** remaining **12.9%** + portrait normalize group 09 reorder/swaps; union-hide or @tsxscene ar map for groups 10–11 &amp; structural portrait splits during feature migration."><td class="align-left"><strong>Phase 4: Structural &amp; Orientation Splits</strong></td><td class="align-left">Groups <strong>09, 10, 11, 12</strong></td><td class="align-right">Remaining <strong><code>12.9%</code></strong> + Portrait</td><td class="align-left">Normalize Group 09 reorder/swaps; union-hide or <code>@TsxScene</code> AR map for Groups 10–11 &amp; structural Portrait splits during feature migration.</td></tr></tbody></table></div>
+          <nav class="pager" aria-label="Page navigation">
+    <div></div>
+    <a class="pager-card pager-next" href="./01-identical.html">
+            <span class="pager-dir">Next →</span>
+            <span class="pager-title">01. Identical Trees &amp; FSM</span>
+          </a>
+  </nav>
+        </article>
+        <aside class="toc" aria-label="On this page">
+          <div class="toc-title">On this page</div>
+          <ul><li class="toc-l2"><a href="#corpus-snapshot">Corpus Snapshot</a></li><li class="toc-l2"><a href="#diff-groups-directory-ordered-easiest-hardest">Diff Groups Directory (Ordered Easiest → Hardest)</a></li><li class="toc-l2"><a href="#shared-runtime-contract-required-even-for-1-collapsed-tsx">Shared Runtime Contract (Required Even for 1 Collapsed .tsx)</a></li><li class="toc-l2"><a href="#recommended-4-phase-rollout">Recommended 4-Phase Rollout</a></li></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script src="./assets/search-index.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

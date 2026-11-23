@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 02 — Top-Level Offset / Bounds Only — Multi-Aspect WBIP Scenes Docs</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script>
+    (function() {
+      var t = localStorage.getItem("wbip-docs-theme");
+      if (t === "dark" || (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="mobile-topbar">
+    <button type="button" class="icon-btn" id="sidebar-open" aria-label="Open menu">☰</button>
+    <a href="./index.html" class="mobile-brand">Multi-Aspect WBIP Docs</a>
+    <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <a href="./index.html" class="brand-link">
+        <span class="brand-logo">@</span>
+        <span>
+          <strong>Multi-Aspect WBIP</strong>
+          <small>Scene Diff &amp; Reduction Docs</small>
+        </span>
+      </a>
+      <button class="icon-btn mobile-close" id="sidebar-close" aria-label="Close navigation">✕</button>
+    </div>
+    <div class="global-search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="global-search-input" placeholder="Search all 508 scenes..." autocomplete="off" aria-label="Search all scenes across all groups" />
+      <kbd>/</kbd>
+      <div class="global-search-results" id="global-search-results" hidden></div>
+    </div>
+    <nav class="sidebar-nav" aria-label="Diff groups">
+      <div class="nav-section-title">Documentation</div>
+      <a class="nav-item" href="./index.html"><span class="nav-label">Overview &amp; Index</span><span class="nav-count badge-index">508</span></a>
+      <div class="nav-section-title">Same Node Tree (Groups 01–07)</div>
+      <a class="nav-item" href="./01-identical.html"><span class="nav-label"><span class="nav-num">01</span>Identical Trees &amp; FSM</span><span class="nav-count badge-trivial">47</span></a>
+      <a class="nav-item active" href="./02-root-offset-only.html"><span class="nav-label"><span class="nav-num">02</span>Top-Level Offset / Bounds</span><span class="nav-count badge-easy">8</span></a>
+      <a class="nav-item" href="./03-root-uniform-scale-offset.html"><span class="nav-label"><span class="nav-num">03</span>Uniform Scale + Offset</span><span class="nav-count badge-easy">157</span></a>
+      <a class="nav-item" href="./04-prop-diff-1-to-5-nodes.html"><span class="nav-label"><span class="nav-num">04</span>1–5 Nodes Differ</span><span class="nav-count badge-medium">79</span></a>
+      <a class="nav-item" href="./05-prop-diff-many-nodes.html"><span class="nav-label"><span class="nav-num">05</span>&gt;5 Nodes Differ</span><span class="nav-count badge-medium">39</span></a>
+      <a class="nav-item" href="./06-fsm-actions-differ.html"><span class="nav-label"><span class="nav-num">06</span>FSM actionIndices Differ</span><span class="nav-count badge-medhard">66</span></a>
+      <a class="nav-item" href="./07-fsm-states-differ.html"><span class="nav-label"><span class="nav-num">07</span>FSM states Differ</span><span class="nav-count badge-medium">1</span></a>
+      <div class="nav-section-title">Structural Diffs (Groups 08–11)</div>
+      <a class="nav-item" href="./08-structural-empty-stub.html"><span class="nav-label"><span class="nav-num">08</span>Empty / Stub Variant</span><span class="nav-count badge-easy">2</span></a>
+      <a class="nav-item" href="./09-structural-wrapper-or-reorder.html"><span class="nav-label"><span class="nav-num">09</span>Reorder / Wrapper Swap</span><span class="nav-count badge-medhard">19</span></a>
+      <a class="nav-item" href="./10-structural-small-node-delta.html"><span class="nav-label"><span class="nav-num">10</span>Small Node Delta (1–3)</span><span class="nav-count badge-hard">29</span></a>
+      <a class="nav-item" href="./11-structural-large-divergence.html"><span class="nav-label"><span class="nav-num">11</span>Large Divergence (≥4)</span><span class="nav-count badge-hard">11</span></a>
+      <div class="nav-section-title">Orientation</div>
+      <a class="nav-item" href="./12-portrait-and-orientation.html"><span class="nav-label"><span class="nav-num">12</span>Portrait &amp; Orientation</span><span class="nav-count badge-mixed">113</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+        <span class="theme-icon">◐</span>
+        <span class="theme-label">Toggle Light / Dark</span>
+      </button>
+    </div>
+  </aside>
+    <main class="main">
+      <div class="content-grid">
+        <article class="article">
+          <div class="breadcrumb">
+            <a href="./index.html">Overview</a>
+            <span class="sep">/</span><span>Group 02: Top-Level Offset / Bounds</span>
+          </div>
+          <div class="page-header">
+          <div class="page-eyebrow">
+            <span class="badge badge-easy">Easy</span>
+            <span class="eyebrow-count">8 landscape groups</span>
+          </div>
+          <h1 id="group-02-top-level-offset-bounds-only">Group 02 — Top-Level Offset / Bounds Only</h1>
+        </div>
+<div class="meta-grid"><div class="meta-card"><div class="meta-label">Count</div><div class="meta-value"><code>8</code> landscape groups (<code>1.7%</code> of <code>458</code>)</div></div><div class="meta-card"><div class="meta-label">Difficulty</div><div class="meta-value"><strong>Easy</strong></div></div><div class="meta-card"><div class="meta-label">Target outcome</div><div class="meta-value">Collapse to <strong>1 <code>scene.object.tsx</code></strong> with a small dynamic <code>Position</code> or <code>Bounds</code> adjustment on the root or a direct top-level child.</div></div></div>
+<hr class="section-divider" />
+<h2 id="1-what-defines-this-group"><a class="anchor" href="#1-what-defines-this-group" aria-hidden="true">#</a>1. What Defines This Group</h2>
+<p>Every landscape variant has the <strong>exact same node tree and FSM</strong>, with <strong>no <code>Scale</code> differences</strong> — only <code>Position</code> and/or <code>Bounds</code> differ on the <strong>root node</strong> or its <strong>direct children</strong> (<code>depth &lt;= 1</code>).</p>
+<p>Across the <code>8</code> real scenes in this group, three concrete sub-patterns appear:</p>
+<ol><li><strong>Root <code>Bounds.height</code> trim (2 groups):</strong> <code>PlayersProfile.Popup.Inbox</code> (<code>sceneGroupItem@</code>, <code>socialStreakToggle@</code>) only shrinks <code>root#inbox.Bounds.height</code> slightly on wider screens (<code>132 → 128 → 123 → 117</code>).</li><li><strong>Single HUD/popup child horizontal offset (4 groups):</strong> One direct child (<code>coinsHolder</code>, <code>popup</code>, <code>gridHolderAdaptive</code>) shifts horizontally between <code>4x3</code> and <code>3x2</code> (in <code>HitGame.Popups.Complete</code>, literally by <strong>1 px</strong>: <code>x=59</code> vs <code>x=60</code>!).</li><li><strong>Two top-level overlay children shift horizontally (2 groups):</strong> <code>RoyalCommunalJackpot.Panel.Tutorial</code> shifts <code>turnRoyalText</code> and <code>maskSwitchPlace</code> horizontally across <code>4x3</code>, <code>3x2</code>, <code>19.5x9</code>; <code>Login.DynamicSplash</code> nudges <code>progressStates</code> and <code>TxtContainer</code> by <code>~11px</code> on <code>4x3</code>.</li></ol>
+<hr class="section-divider" />
+<h2 id="2-real-wbip-examples"><a class="anchor" href="#2-real-wbip-examples" aria-hidden="true">#</a>2. Real WBIP Examples</h2>
+<h3 id="example-a-sh-remote-playersprofile-popup-inbox-scenegroupitem-object-root-bounds-only"><a class="anchor" href="#example-a-sh-remote-playersprofile-popup-inbox-scenegroupitem-object-root-bounds-only" aria-hidden="true">#</a>Example A: <code>sh-remote-PlayersProfile.Popup.Inbox</code> — <code>sceneGroupItem@.object</code> (Root <code>Bounds</code> only)</h3>
+<p>Tree (<code>197</code> nodes) and FSM are 100% identical across all 5 aspects. Only <code>root#inbox.Bounds.height</code> changes:</p>
+<div class="table-wrap"><table id="tbl-02-1" class=""><thead><tr><th class="align-left">Node Path</th><th class="align-left">Property</th><th class="align-left"><code>4x3</code></th><th class="align-left"><code>3x2</code></th><th class="align-left"><code>16x9</code></th><th class="align-left"><code>18x9</code></th><th class="align-left"><code>19.5x9</code></th></tr></thead><tbody><tr data-scope="" data-search="root#inbox (idx:196) bounds 805 × 132 805 × 132 805 × 128 805 × 123 805 × 117"><td class="align-left"><code>root#inbox</code> (<code>idx:196</code>)</td><td class="align-left"><code>Bounds</code></td><td class="align-left"><code>805 × 132</code></td><td class="align-left"><code>805 × 132</code></td><td class="align-left"><code>805 × 128</code></td><td class="align-left"><code>805 × 123</code></td><td class="align-left"><code>805 × 117</code></td></tr></tbody></table></div>
+<h3 id="example-b-sh-remote-royalcommunaljackpot-panel-tutorial-sceneswitchtutorial-object-direct-child-position"><a class="anchor" href="#example-b-sh-remote-royalcommunaljackpot-panel-tutorial-sceneswitchtutorial-object-direct-child-position" aria-hidden="true">#</a>Example B: <code>sh-remote-RoyalCommunalJackpot.Panel.Tutorial</code> — <code>sceneSwitchTutorial@.object</code> (Direct child <code>Position</code>)</h3>
+<p>Two direct children of <code>root</code> shift linearly as screen width widens (tracking a right-side UI control):</p>
+<div class="table-wrap"><table id="tbl-02-2" class=""><thead><tr><th class="align-left">Node Path</th><th class="align-left">Property</th><th class="align-left"><code>4x3</code></th><th class="align-left"><code>3x2</code></th><th class="align-left"><code>19.5x9</code></th></tr></thead><tbody><tr data-scope="" data-search="root/0:turnroyaltext (idx:8) position (409, 160) (499, 169) (597, 169)"><td class="align-left"><code>root/0:turnRoyalText</code> (<code>idx:8</code>)</td><td class="align-left"><code>Position</code></td><td class="align-left"><code>(409, 160)</code></td><td class="align-left"><code>(499, 169)</code></td><td class="align-left"><code>(597, 169)</code></td></tr><tr data-scope="" data-search="root/1:maskswitchplace (idx:9) position (722, 0) (812, 9) (909, 9)"><td class="align-left"><code>root/1:maskSwitchPlace</code> (<code>idx:9</code>)</td><td class="align-left"><code>Position</code></td><td class="align-left"><code>(722, 0)</code></td><td class="align-left"><code>(812, 9)</code></td><td class="align-left"><code>(909, 9)</code></td></tr></tbody></table></div>
+<h3 id="example-c-sh-remote-featuretoolkit-onboarding-sceneonboardinglucy-object-bounds-centering-position"><a class="anchor" href="#example-c-sh-remote-featuretoolkit-onboarding-sceneonboardinglucy-object-bounds-centering-position" aria-hidden="true">#</a>Example C: <code>sh-remote-FeatureToolkit.Onboarding</code> — <code>sceneOnboardingLucy@.object</code> (<code>Bounds</code> + centering <code>Position</code>)</h3>
+<p>Only <code>root/4:gridHolderAdaptive</code> narrows and re-centers on <code>4x3</code>:</p>
+<div class="table-wrap"><table id="tbl-02-3" class=""><thead><tr><th class="align-left">Node Path</th><th class="align-left">Property</th><th class="align-left"><code>4x3</code></th><th class="align-left"><code>3x2</code></th></tr></thead><tbody><tr data-scope="" data-search="root/4:gridholderadaptive (idx:5) bounds 533 × 640 853 × 640"><td class="align-left"><code>root/4:gridHolderAdaptive</code> (<code>idx:5</code>)</td><td class="align-left"><code>Bounds</code></td><td class="align-left"><code>533 × 640</code></td><td class="align-left"><code>853 × 640</code></td></tr><tr data-scope="" data-search="root/4:gridholderadaptive (idx:5) position (212, 0) (51, 0)"><td class="align-left"><code>root/4:gridHolderAdaptive</code> (<code>idx:5</code>)</td><td class="align-left"><code>Position</code></td><td class="align-left"><code>(212, 0)</code></td><td class="align-left"><code>(51, 0)</code></td></tr></tbody></table></div>
+<p><em>Notice the math:</em> <code>212 + 533 / 2 = 478.5</code> and <code>51 + 853 / 2 = 477.5</code> — both are centered inside the <code>960</code> design width!</p>
+<hr class="section-divider" />
+<h2 id="3-potential-solution-reduce-to-1-scene"><a class="anchor" href="#3-potential-solution-reduce-to-1-scene" aria-hidden="true">#</a>3. Potential Solution (Reduce to 1 Scene)</h2>
+<p>Because neither <code>Scale</code> nor any deeper descendants differ, all <code>8</code> groups collapse cleanly into <strong>1 <code>scene.object.tsx</code></strong> using either:</p>
+<ul><li><strong>Formulaic edge/center anchoring</strong> computed from <code>Game.instance.screen.design</code> (evaluated at <code>build()</code> and refreshed on <code>Game.instance.viewPortChanged</code>), <strong>or</strong></li><li>A minimal inline <code>byAspect(...)</code> prop override when the designer picked discrete pixel values (like <code>Inbox</code> item heights <code>132 / 128 / 123 / 117</code> or the <code>1px</code> nudge in <code>HitGame.Popups.Complete</code>).</li></ul>
+<div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">TSX</span>
+          <button class="copy-btn" type="button" data-copy>Copy</button>
+        </div>
+        <pre><code class="lang-tsx"><span class="tok-comment">// Collapsed single scene for RoyalCommunalJackpot.Panel.Tutorial</span>
+<span class="tok-kw">export</span> <span class="tok-kw">const</span> sceneName = <span class="tok-string">&quot;sceneSwitchTutorial3x2.object&quot;</span>;
+
+<span class="tok-kw">export</span> <span class="tok-kw">function</span> build(contentManager: IContentManager, prefabData: IPrefabData): GameComponent {
+    <span class="tok-kw">return</span> (
+        &lt;<span class="tok-tag">RenderStatesNode</span>&gt;
+            &lt;<span class="tok-tag">ContainerNode</span>
+                Id=<span class="tok-string">&quot;turnRoyalText&quot;</span>
+                Position={byAspect({
+                    <span class="tok-string">&quot;4x3&quot;</span>: { x: <span class="tok-num">409</span>, y: <span class="tok-num">160</span> },
+                    <span class="tok-string">&quot;3x2&quot;</span>: { x: <span class="tok-num">499</span>, y: <span class="tok-num">169</span> },
+                    <span class="tok-string">&quot;19.5x9&quot;</span>: { x: <span class="tok-num">597</span>, y: <span class="tok-num">169</span> },
+                })}
+            &gt;
+                {<span class="tok-comment">/* ... */</span>}
+            &lt;/<span class="tok-tag">ContainerNode</span>&gt;
+            &lt;<span class="tok-tag">ContainerNode</span>
+                Id=<span class="tok-string">&quot;maskSwitchPlace&quot;</span>
+                Position={byAspect({
+                    <span class="tok-string">&quot;4x3&quot;</span>: { x: <span class="tok-num">722</span>, y: <span class="tok-num">0</span> },
+                    <span class="tok-string">&quot;3x2&quot;</span>: { x: <span class="tok-num">812</span>, y: <span class="tok-num">9</span> },
+                    <span class="tok-string">&quot;19.5x9&quot;</span>: { x: <span class="tok-num">909</span>, y: <span class="tok-num">9</span> },
+                })}
+            &gt;
+                {<span class="tok-comment">/* ... */</span>}
+            &lt;/<span class="tok-tag">ContainerNode</span>&gt;
+        &lt;/<span class="tok-tag">RenderStatesNode</span>&gt;
+    );
+}</code></pre>
+      </div>
+<h3 id="edge-cases-gotchas"><a class="anchor" href="#edge-cases-gotchas" aria-hidden="true">#</a>Edge cases &amp; gotchas</h3>
+<ul><li>Verify the adjusted node is <strong>not</strong> targeted by a <code>Position</code> tween in <code>WbipActionConnections</code> (if it is, apply the offset on a non-FSM wrapper container around it instead of mutating the tweened node directly).</li><li>For <code>HitGame.Popups.Complete</code> (<code>1px</code> difference: <code>x=59</code> vs <code>x=60</code>), you can simply collapse as identical without any runtime override.</li></ul>
+<hr class="section-divider" />
+<h2 id="4-complete-scene-list-8-groups"><a class="anchor" href="#4-complete-scene-list-8-groups" aria-hidden="true">#</a>4. Complete Scene List (8 Groups)</h2>
+<div class="table-toolbar" data-table-toolbar="tbl-02-4">
+              <div class="table-search-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" class="table-search" placeholder="Filter 8 scenes by package, scene name, aspect, or property..." aria-label="Filter table" />
+              </div>
+              <div class="scope-chips" role="group" aria-label="Filter by package scope">
+                      <button type="button" class="chip active" data-scope="all">All</button>
+                      <button type="button" class="chip" data-scope="remote">remote</button><button type="button" class="chip" data-scope="static">static</button>
+                    </div>
+              <span class="table-count" data-count>Showing <strong>8</strong> of 8</span>
+            </div><div class="table-wrap"><table id="tbl-02-4" class="inventory-table"><thead><tr><th class="align-right">#</th><th class="align-left">Package</th><th class="align-left">Scene Pattern</th><th class="align-left">Scope</th><th class="align-left">Landscape Aspects</th><th class="align-right">Nodes</th><th class="align-left">Exact Differing Node(s) &amp; Properties</th></tr></thead><tbody><tr data-scope="remote" data-search="1 sh-remote-betbooster.popups.summary scenebetboostersummarypopup@.object remote 4x3, 3x2 103 root/1:coinsholder#coinsholder position: (300,28) → (327,15) (3x2 vs 4x3)"><td class="align-right">1</td><td class="align-left"><code>sh-remote-BetBooster.Popups.Summary</code></td><td class="align-left"><code>sceneBetBoosterSummaryPopup@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">103</td><td class="align-left"><code>root/1:coinsHolder#coinsHolder</code> <code>Position</code>: (300,28) → (327,15) (3x2 vs 4x3)</td></tr><tr data-scope="remote" data-search="2 sh-remote-featuretoolkit.onboarding sceneonboardinglucy@.object remote 4x3, 3x2 7 root/4:gridholderadaptive#gridholderadaptive bounds: 853×640 → 533×640 (3x2 vs 4x3); root/4:gridholderadaptive#gridholderadaptive position: (51,0) → (212,0) (3x2 vs 4x3)"><td class="align-right">2</td><td class="align-left"><code>sh-remote-FeatureToolkit.Onboarding</code></td><td class="align-left"><code>sceneOnboardingLucy@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">7</td><td class="align-left"><code>root/4:gridHolderAdaptive#gridHolderAdaptive</code> <code>Bounds</code>: 853×640 → 533×640 (3x2 vs 4x3); <code>root/4:gridHolderAdaptive#gridHolderAdaptive</code> <code>Position</code>: (51,0) → (212,0) (3x2 vs 4x3)</td></tr><tr data-scope="remote" data-search="3 sh-remote-hitgame.popups.complete scenehitminigamecompletepopup@.object remote 4x3, 3x2 94 root/0:popup#popup position: (59,0) → (60,0) (3x2 vs 4x3)"><td class="align-right">3</td><td class="align-left"><code>sh-remote-HitGame.Popups.Complete</code></td><td class="align-left"><code>sceneHitMiniGameCompletePopup@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">94</td><td class="align-left"><code>root/0:popup#popup</code> <code>Position</code>: (59,0) → (60,0) (3x2 vs 4x3)</td></tr><tr data-scope="remote" data-search="4 sh-remote-lavaquest.popups.winningscreen scenelavaquestwinning@.object remote 4x3, 3x2 36 root/1:coinsholder#coinsholder position: (33,33) → (87,33) (3x2 vs 4x3)"><td class="align-right">4</td><td class="align-left"><code>sh-remote-LavaQuest.Popups.WinningScreen</code></td><td class="align-left"><code>sceneLavaQuestWinning@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-right">36</td><td class="align-left"><code>root/1:coinsHolder#coinsHolder</code> <code>Position</code>: (33,33) → (87,33) (3x2 vs 4x3)</td></tr><tr data-scope="remote" data-search="5 sh-remote-playersprofile.popup.inbox scenegroupitem@.object remote 4x3, 3x2, 16x9, 18x9, 19.5x9 197 root#inbox bounds: 805×132 → 805×128 (3x2 vs 16x9)"><td class="align-right">5</td><td class="align-left"><code>sh-remote-PlayersProfile.Popup.Inbox</code></td><td class="align-left"><code>sceneGroupItem@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">197</td><td class="align-left"><code>root#inbox</code> <code>Bounds</code>: 805×132 → 805×128 (3x2 vs 16x9)</td></tr><tr data-scope="remote" data-search="6 sh-remote-playersprofile.popup.inbox socialstreaktoggle@.object remote 4x3, 3x2, 16x9, 18x9, 19.5x9 13 root#inbox bounds: 805×132 → 805×128 (3x2 vs 16x9)"><td class="align-right">6</td><td class="align-left"><code>sh-remote-PlayersProfile.Popup.Inbox</code></td><td class="align-left"><code>socialStreakToggle@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">13</td><td class="align-left"><code>root#inbox</code> <code>Bounds</code>: 805×132 → 805×128 (3x2 vs 16x9)</td></tr><tr data-scope="remote" data-search="7 sh-remote-royalcommunaljackpot.panel.tutorial sceneswitchtutorial@.object remote 4x3, 3x2, 19.5x9 11 root/0:turnroyaltext#turnroyaltext position: (499,169) → (409,160) (3x2 vs 4x3); root/1:maskswitchplace#maskswitchplace position: (812,9) → (722,0) (3x2 vs 4x3)"><td class="align-right">7</td><td class="align-left"><code>sh-remote-RoyalCommunalJackpot.Panel.Tutorial</code></td><td class="align-left"><code>sceneSwitchTutorial@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>19.5x9</code></td><td class="align-right">11</td><td class="align-left"><code>root/0:turnRoyalText#turnRoyalText</code> <code>Position</code>: (499,169) → (409,160) (3x2 vs 4x3); <code>root/1:maskSwitchPlace#maskSwitchPlace</code> <code>Position</code>: (812,9) → (722,0) (3x2 vs 4x3)</td></tr><tr data-scope="static" data-search="8 sh-static-login.dynamicsplash sceneloading@.object static 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16 root/1:progressstates#progressstates position: (13,32) → (24,43) (3x2 vs 4x3); root/2:txtcontainer#txtcontainer position: (363,598) → (374,611) (3x2 vs 4x3)"><td class="align-right">8</td><td class="align-left"><code>sh-static-Login.DynamicSplash</code></td><td class="align-left"><code>sceneLoading@.object</code></td><td class="align-left"><span class="scope-pill scope-static">static</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-right">16</td><td class="align-left"><code>root/1:progressStates#progressStates</code> <code>Position</code>: (13,32) → (24,43) (3x2 vs 4x3); <code>root/2:TxtContainer#TxtContainer</code> <code>Position</code>: (363,598) → (374,611) (3x2 vs 4x3)</td></tr></tbody></table></div>
+          <nav class="pager" aria-label="Page navigation">
+    <a class="pager-card pager-prev" href="./01-identical.html">
+            <span class="pager-dir">← Previous</span>
+            <span class="pager-title">01. Identical Trees &amp; FSM</span>
+          </a>
+    <a class="pager-card pager-next" href="./03-root-uniform-scale-offset.html">
+            <span class="pager-dir">Next →</span>
+            <span class="pager-title">03. Uniform Scale + Offset</span>
+          </a>
+  </nav>
+        </article>
+        <aside class="toc" aria-label="On this page">
+          <div class="toc-title">On this page</div>
+          <ul><li class="toc-l2"><a href="#1-what-defines-this-group">1. What Defines This Group</a></li><li class="toc-l2"><a href="#2-real-wbip-examples">2. Real WBIP Examples</a></li><li class="toc-l3"><a href="#example-a-sh-remote-playersprofile-popup-inbox-scenegroupitem-object-root-bounds-only">Example A: sh-remote-PlayersProfile.Popup.Inbox — sceneGroupItem@.object (Root Bounds only)</a></li><li class="toc-l3"><a href="#example-b-sh-remote-royalcommunaljackpot-panel-tutorial-sceneswitchtutorial-object-direct-child-position">Example B: sh-remote-RoyalCommunalJackpot.Panel.Tutorial — sceneSwitchTutorial@.object (Direct child Position)</a></li><li class="toc-l3"><a href="#example-c-sh-remote-featuretoolkit-onboarding-sceneonboardinglucy-object-bounds-centering-position">Example C: sh-remote-FeatureToolkit.Onboarding — sceneOnboardingLucy@.object (Bounds + centering Position)</a></li><li class="toc-l2"><a href="#3-potential-solution-reduce-to-1-scene">3. Potential Solution (Reduce to 1 Scene)</a></li><li class="toc-l3"><a href="#edge-cases-gotchas">Edge cases &amp; gotchas</a></li><li class="toc-l2"><a href="#4-complete-scene-list-8-groups">4. Complete Scene List (8 Groups)</a></li></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script src="./assets/search-index.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

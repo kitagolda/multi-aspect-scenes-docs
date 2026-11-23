@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Group 11 — Structural: Larger Subtree Divergence (≥4 Nodes) — Multi-Aspect WBIP Scenes Docs</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <script>
+    (function() {
+      var t = localStorage.getItem("wbip-docs-theme");
+      if (t === "dark" || (!t && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="mobile-topbar">
+    <button type="button" class="icon-btn" id="sidebar-open" aria-label="Open menu">☰</button>
+    <a href="./index.html" class="mobile-brand">Multi-Aspect WBIP Docs</a>
+    <button type="button" class="icon-btn" id="mobile-theme-toggle" aria-label="Toggle theme">◐</button>
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <a href="./index.html" class="brand-link">
+        <span class="brand-logo">@</span>
+        <span>
+          <strong>Multi-Aspect WBIP</strong>
+          <small>Scene Diff &amp; Reduction Docs</small>
+        </span>
+      </a>
+      <button class="icon-btn mobile-close" id="sidebar-close" aria-label="Close navigation">✕</button>
+    </div>
+    <div class="global-search-box">
+      <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="global-search-input" placeholder="Search all 508 scenes..." autocomplete="off" aria-label="Search all scenes across all groups" />
+      <kbd>/</kbd>
+      <div class="global-search-results" id="global-search-results" hidden></div>
+    </div>
+    <nav class="sidebar-nav" aria-label="Diff groups">
+      <div class="nav-section-title">Documentation</div>
+      <a class="nav-item" href="./index.html"><span class="nav-label">Overview &amp; Index</span><span class="nav-count badge-index">508</span></a>
+      <div class="nav-section-title">Same Node Tree (Groups 01–07)</div>
+      <a class="nav-item" href="./01-identical.html"><span class="nav-label"><span class="nav-num">01</span>Identical Trees &amp; FSM</span><span class="nav-count badge-trivial">47</span></a>
+      <a class="nav-item" href="./02-root-offset-only.html"><span class="nav-label"><span class="nav-num">02</span>Top-Level Offset / Bounds</span><span class="nav-count badge-easy">8</span></a>
+      <a class="nav-item" href="./03-root-uniform-scale-offset.html"><span class="nav-label"><span class="nav-num">03</span>Uniform Scale + Offset</span><span class="nav-count badge-easy">157</span></a>
+      <a class="nav-item" href="./04-prop-diff-1-to-5-nodes.html"><span class="nav-label"><span class="nav-num">04</span>1–5 Nodes Differ</span><span class="nav-count badge-medium">79</span></a>
+      <a class="nav-item" href="./05-prop-diff-many-nodes.html"><span class="nav-label"><span class="nav-num">05</span>&gt;5 Nodes Differ</span><span class="nav-count badge-medium">39</span></a>
+      <a class="nav-item" href="./06-fsm-actions-differ.html"><span class="nav-label"><span class="nav-num">06</span>FSM actionIndices Differ</span><span class="nav-count badge-medhard">66</span></a>
+      <a class="nav-item" href="./07-fsm-states-differ.html"><span class="nav-label"><span class="nav-num">07</span>FSM states Differ</span><span class="nav-count badge-medium">1</span></a>
+      <div class="nav-section-title">Structural Diffs (Groups 08–11)</div>
+      <a class="nav-item" href="./08-structural-empty-stub.html"><span class="nav-label"><span class="nav-num">08</span>Empty / Stub Variant</span><span class="nav-count badge-easy">2</span></a>
+      <a class="nav-item" href="./09-structural-wrapper-or-reorder.html"><span class="nav-label"><span class="nav-num">09</span>Reorder / Wrapper Swap</span><span class="nav-count badge-medhard">19</span></a>
+      <a class="nav-item" href="./10-structural-small-node-delta.html"><span class="nav-label"><span class="nav-num">10</span>Small Node Delta (1–3)</span><span class="nav-count badge-hard">29</span></a>
+      <a class="nav-item active" href="./11-structural-large-divergence.html"><span class="nav-label"><span class="nav-num">11</span>Large Divergence (≥4)</span><span class="nav-count badge-hard">11</span></a>
+      <div class="nav-section-title">Orientation</div>
+      <a class="nav-item" href="./12-portrait-and-orientation.html"><span class="nav-label"><span class="nav-num">12</span>Portrait &amp; Orientation</span><span class="nav-count badge-mixed">113</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+        <span class="theme-icon">◐</span>
+        <span class="theme-label">Toggle Light / Dark</span>
+      </button>
+    </div>
+  </aside>
+    <main class="main">
+      <div class="content-grid">
+        <article class="article">
+          <div class="breadcrumb">
+            <a href="./index.html">Overview</a>
+            <span class="sep">/</span><span>Group 11: Large Divergence (≥4)</span>
+          </div>
+          <div class="page-header">
+          <div class="page-eyebrow">
+            <span class="badge badge-hard">Fallback</span>
+            <span class="eyebrow-count">11 landscape groups</span>
+          </div>
+          <h1 id="group-11-structural-larger-subtree-divergence-4-nodes">Group 11 — Structural: Larger Subtree Divergence (≥4 Nodes)</h1>
+        </div>
+<div class="meta-grid"><div class="meta-card"><div class="meta-label">Count</div><div class="meta-value"><code>11</code> landscape groups (<code>2.4%</code> of <code>458</code>)</div></div><div class="meta-card"><div class="meta-label">Difficulty</div><div class="meta-value"><strong>Hard / Fallback</strong></div></div><div class="meta-card"><div class="meta-label">Target outcome</div><div class="meta-value">Keep separate <code>.tsx</code> variants via the <strong>lazy <code>@TsxScene</code> proximity AR map</strong> by default; selectively unify localized subtrees or strip copy-paste artist bloat during manual feature migration.</div></div></div>
+<hr class="section-divider" />
+<h2 id="1-what-defines-this-group"><a class="anchor" href="#1-what-defines-this-group" aria-hidden="true">#</a>1. What Defines This Group</h2>
+<p>Landscape variants diverge structurally by <strong><code>4</code> to <code>18</code> nodes</strong> — adding or removing entire subtrees, wrapping root hierarchies differently, or carrying extra masks/effects/controls on specific aspect ratios.</p>
+<p>Even inside this hardest group, inspecting the real WBIP trees shows that <strong>most divergences are surprisingly localized</strong> (a single added sub-panel, a wide-screen side cover, or duplicated sound containers), rather than completely different scenes from top to bottom.</p>
+<hr class="section-divider" />
+<h2 id="2-real-wbip-examples-side-by-side-trees"><a class="anchor" href="#2-real-wbip-examples-side-by-side-trees" aria-hidden="true">#</a>2. Real WBIP Examples (Side-by-Side Trees)</h2>
+<h3 id="example-a-sh-remote-playersprofile-popup-scene-object-localized-wide-screen-side-cover-67-vs-71-nodes"><a class="anchor" href="#example-a-sh-remote-playersprofile-popup-scene-object-localized-wide-screen-side-cover-67-vs-71-nodes" aria-hidden="true">#</a>Example A: <code>sh-remote-PlayersProfile.Popup</code> — <code>scene@.object</code> (Localized wide-screen side cover: <code>67</code> vs <code>71</code> nodes)</h3>
+<p>On <code>18x9</code> and <code>19.5x9</code>, <code>panelProfile</code> inserts <strong>one extra 4-node subtree</strong> (<code>CONTAINER_NODE#Covering</code>) to mask and shadow the wider left panel:</p>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>4x3</code> / <code>3x2</code> / <code>5x3</code> / <code>16x9</code> (<code>67</code> nodes):</div>
+          <pre><code><span class="tree-line">root/4:panelProfile/0:<span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  ├─ [0] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;LeftSideBackground&quot;]</span></span>
+<span class="tree-line">  ├─ [1] <span class="tok-node">CONTAINER_NODE</span> <span class="tok-id">[id=&quot;SubFeatureData&quot;]</span> (2 ch)</span>
+<span class="tree-line">  ├─ [2] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle1&quot;]</span></span>
+<span class="tree-line">  ├─ [3] <span class="tok-node">CONTAINER_NODE</span> <span class="tok-id">[id=&quot;Avatar&quot;]</span> (1 ch)</span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">BUTTON_NODE</span> <span class="tok-id">[id=&quot;BtnEditProfile&quot;]</span> (4 ch)</span>
+<span class="tree-line">  ├─ [5] <span class="tok-node">CONTAINER_NODE</span> (0 ch)</span>
+<span class="tree-line">  ├─ [6] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle2&quot;]</span></span>
+<span class="tree-line">  ├─ [7] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle3&quot;]</span></span>
+<span class="tree-line">  └─ [8] <span class="tok-node">MASK_TEXTURE_NODE</span> (1 ch)</span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>18x9</code> / <code>19.5x9</code> (<code>71</code> nodes):</div>
+          <pre><code><span class="tree-line">root/4:panelProfile/0:<span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  ├─ [0] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;LeftSideBackground&quot;]</span></span>
+<span class="tree-line">  ├─ [1] <span class="tok-node">CONTAINER_NODE</span> <span class="tok-id">[id=&quot;SubFeatureData&quot;]</span> (2 ch)</span>
+<span class="tree-line tree-line-add">  ├─ [2] CONTAINER_NODE [id=&quot;Covering&quot;]  <span class="tree-note">&lt;-- +4 nodes on 18x9/19.5x9</span></span>
+<span class="tree-line">  │    ├─ <span class="tok-node">MASK_TEXTURE_NODE</span> (tex=&quot;mask.png&quot;)</span>
+<span class="tree-line">  │    │    └─ <span class="tok-node">SPRITE_NODE</span> (sprite=&quot;BgPanelProfile.spr&quot;)</span>
+<span class="tree-line">  │    └─ <span class="tok-node">SPRITE_NODE</span> (sprite=&quot;shadowLeftNew.spr&quot;, pos=(96, 186))</span>
+<span class="tree-line">  ├─ [3] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle1&quot;]</span></span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">CONTAINER_NODE</span> <span class="tok-id">[id=&quot;Avatar&quot;]</span> (1 ch)</span>
+<span class="tree-line">  ├─ [5] <span class="tok-node">BUTTON_NODE</span> <span class="tok-id">[id=&quot;BtnEditProfile&quot;]</span> (4 ch)</span>
+<span class="tree-line">  ├─ [6] <span class="tok-node">CONTAINER_NODE</span> (0 ch)</span>
+<span class="tree-line">  ├─ [7] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle2&quot;]</span></span>
+<span class="tree-line">  ├─ [8] <span class="tok-node">SPRITE_NODE</span> <span class="tok-id">[id=&quot;AvatarCircle3&quot;]</span></span>
+<span class="tree-line">  └─ [9] <span class="tok-node">MASK_TEXTURE_NODE</span> (1 ch)</span></code></pre>
+        </div>
+      </div>
+<hr class="section-divider" />
+<h3 id="example-b-sh-remote-ballinko-offer-sceneofferpopup-object-extra-wide-screen-effects-wrapped-close-button-176-vs-194-nodes"><a class="anchor" href="#example-b-sh-remote-ballinko-offer-sceneofferpopup-object-extra-wide-screen-effects-wrapped-close-button-176-vs-194-nodes" aria-hidden="true">#</a>Example B: <code>sh-remote-Ballinko.Offer</code> — <code>sceneOfferPopup@.object</code> (Extra wide-screen effects + wrapped close button: <code>176</code> vs <code>194</code> nodes)</h3>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>4x3</code> / <code>3x2</code> / <code>5x3</code> (<code>176</code> nodes):</div>
+          <pre><code><span class="tree-line">root/0:<span class="tok-node">RENDER_STATES_NODE</span>/0:<span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  │    └─ [0] <span class="tok-node">VIDEO_SPRITE_NODE</span> (vid=&quot;efx_win_1.bik&quot;)</span>
+<span class="tree-line">  ├─ ...</span>
+<span class="tree-line">  └─ [7] <span class="tok-node">BUTTON_NODE</span> <span class="tok-id">[id=&quot;closeBtn&quot;]</span> (1 ch)</span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>18x9</code> / <code>19.5x9</code> (<code>194</code> nodes):</div>
+          <pre><code><span class="tree-line">root/0:<span class="tok-node">RENDER_STATES_NODE</span>/0:<span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  ├─ [4] <span class="tok-node">CONTAINER_NODE</span></span>
+<span class="tree-line">  │    ├─ [0] <span class="tok-node">VIDEO_SPRITE_NODE</span> (vid=&quot;efx_win_1.bik&quot;)</span>
+<span class="tree-line tree-line-add">  │    ├─ [1] RENDER_STATES_NODE (7 ch)  <span class="tree-note">&lt;-- +2 animated subtrees (+17 nodes)</span></span>
+<span class="tree-line">  │    └─ [2] <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span>
+<span class="tree-line">  ├─ ...</span>
+<span class="tree-line tree-line-add">  └─ [7] RENDER_STATES_NODE (1 ch)  <span class="tree-note">&lt;-- closeBtn wrapped in RenderStatesNode</span></span></code></pre>
+        </div>
+      </div>
+<hr class="section-divider" />
+<h3 id="example-c-sh-remote-slotocardsver2-albumstonebooster-arena-scenearena-object-duplicate-legacy-sound-containers-on-4x3-768-vs-783-nodes"><a class="anchor" href="#example-c-sh-remote-slotocardsver2-albumstonebooster-arena-scenearena-object-duplicate-legacy-sound-containers-on-4x3-768-vs-783-nodes" aria-hidden="true">#</a>Example C: <code>sh-remote-SlotoCardsVer2.AlbumStoneBooster.Arena</code> — <code>sceneArena@.object</code> (Duplicate legacy sound containers on <code>4x3</code>: <code>768</code> vs <code>783</code> nodes)</h3>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>3x2</code> / <code>5x3</code> / <code>16x9</code> / <code>18x9</code> / <code>19.5x9</code> (<code>768</code> nodes):</div>
+          <pre><code><span class="tree-line">root (13 children)</span>
+<span class="tree-line">  ├─ [0..7] arena content &amp; buttons (identical)</span>
+<span class="tree-line">  ├─ [8]  <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound0_1&quot;]</span></span>
+<span class="tree-line">  ├─ [9]  <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound2&quot;]</span></span>
+<span class="tree-line">  ├─ [10] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound3&quot;]</span></span>
+<span class="tree-line">  ├─ [11] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound2&quot;]</span></span>
+<span class="tree-line">  └─ [12] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound3&quot;]</span></span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>4x3</code> (<code>783</code> nodes):</div>
+          <pre><code><span class="tree-line">root (18 children — 5 extra legacy sound wrappers!)</span>
+<span class="tree-line">  ├─ [0..7] arena content &amp; buttons (identical)</span>
+<span class="tree-line tree-line-add">  ├─ [8]  CONTROL_NODE [id=&quot;bgSound1_2&quot;]  <span class="tree-note">&lt;-- legacy 1-based sound nodes left on 4x3!</span></span>
+<span class="tree-line">  ├─ [9]  <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound3&quot;]</span></span>
+<span class="tree-line">  ├─ [10] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound4&quot;]</span></span>
+<span class="tree-line">  ├─ [11] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound3&quot;]</span></span>
+<span class="tree-line">  ├─ [12] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound4&quot;]</span></span>
+<span class="tree-line">  ├─ [13] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound0_1&quot;]</span></span>
+<span class="tree-line">  ├─ [14] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound2&quot;]</span></span>
+<span class="tree-line">  ├─ [15] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;bgSound3&quot;]</span></span>
+<span class="tree-line">  ├─ [16] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound2&quot;]</span></span>
+<span class="tree-line">  └─ [17] <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;medusaSound3&quot;]</span></span></code></pre>
+        </div>
+      </div>
+<hr class="section-divider" />
+<h3 id="example-d-sh-remote-comebackreward-popups-purchase-scenepurchasepopup-object-different-root-wrapper-hoisted-buttons-16-vs-30-nodes"><a class="anchor" href="#example-d-sh-remote-comebackreward-popups-purchase-scenepurchasepopup-object-different-root-wrapper-hoisted-buttons-16-vs-30-nodes" aria-hidden="true">#</a>Example D: <code>sh-remote-ComebackReward.Popups.Purchase</code> — <code>scenePurchasePopup@.object</code> (Different root wrapper &amp; hoisted buttons: <code>16</code> vs <code>30</code> nodes)</h3>
+<div class="diff-compare">
+        <div class="diff-pane diff-pane-left">
+          <div class="diff-pane-header">On <code>3x2</code> / <code>4x3</code> (<code>16</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;popupStates&quot;]</span> <span class="tok-idx">(idx:15)</span></span>
+<span class="tree-line">  └─ <span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:14)</span></span>
+<span class="tree-line">       └─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:13)</span></span>
+<span class="tree-line">            ├─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span>
+<span class="tree-line">            ├─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span>
+<span class="tree-line">            └─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span></code></pre>
+        </div>
+        <div class="diff-pane diff-pane-right">
+          <div class="diff-pane-header">On <code>16x9</code> (<code>30</code> nodes):</div>
+          <pre><code><span class="tree-line"><span class="tok-node">RENDER_STATES_NODE</span> <span class="tok-idx">(idx:29)</span></span>
+<span class="tree-line tree-line-add">  ├─ BUTTON_NODE [id=&quot;closeBtn&quot;] (idx:4)  <span class="tree-note">&lt;-- extra top-level buttons on 16x9</span></span>
+<span class="tree-line">  ├─ <span class="tok-node">BUTTON_NODE</span> <span class="tok-id">[id=&quot;okBtn&quot;]</span>    <span class="tok-idx">(idx:8)</span></span>
+<span class="tree-line">  ├─ <span class="tok-node">BUTTON_NODE</span> <span class="tok-id">[id=&quot;closeBtn&quot;]</span> <span class="tok-idx">(idx:13)</span></span>
+<span class="tree-line">  └─ <span class="tok-node">CONTROL_NODE</span> <span class="tok-id">[id=&quot;popupStates&quot;]</span> <span class="tok-idx">(idx:28)</span></span>
+<span class="tree-line">       └─ <span class="tok-node">CONTAINER_NODE</span> <span class="tok-idx">(idx:27)</span></span>
+<span class="tree-line">            ├─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span>
+<span class="tree-line">            ├─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span>
+<span class="tree-line">            └─ <span class="tok-node">RENDER_STATES_NODE</span> (1 ch)</span></code></pre>
+        </div>
+      </div>
+<hr class="section-divider" />
+<h2 id="3-potential-solution-lazy-fallback-selective-refactoring"><a class="anchor" href="#3-potential-solution-lazy-fallback-selective-refactoring" aria-hidden="true">#</a>3. Potential Solution (Lazy Fallback + Selective Refactoring)</h2>
+<p>Attempting to auto-merge these <code>11</code> groups in <code>wbip-processor</code> is <strong>not worth the complexity or regression risk</strong> (they represent only <code>2.4%</code> of landscape groups).</p>
+<ol><li><strong>Default — Lazy <code>@TsxScene</code> AR import map (<code>tsx-aspect-lookup</code>):</strong><ul><li>Emit separate <code>.tsx</code> files only for the <strong>distinct</strong> structural variants (e.g. for <code>PlayersProfile.Popup</code>, only <strong>2</strong> files are needed: one for <code>4x3–16x9</code> and one for <code>18x9–19.5x9</code>, NOT 6!).</li><li>Bind them with the parameterized <code>@TsxScene</code> AR map so the browser downloads <strong>only the 1 winning aspect chunk</strong> by screen proximity:</li></ul></li></ol>
+<div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">TS</span>
+          <button class="copy-btn" type="button" data-copy>Copy</button>
+        </div>
+        <pre><code class="lang-ts"><span class="tok-comment">// Only 2 distinct TSX modules needed for PlayersProfile.Popup (instead of 6):</span>
+@TsxScene(<span class="tok-string">&quot;PlayersProfile.Popup/scene@.object&quot;</span>, {
+    <span class="tok-string">&quot;3x2&quot;</span>: () =&gt; <span class="tok-kw">import</span>(<span class="tok-string">&quot;./tsx/scene3x2.object&quot;</span>),   <span class="tok-comment">// covers 4x3, 3x2, 5x3, 16x9 via proximity</span>
+    <span class="tok-string">&quot;18x9&quot;</span>: () =&gt; <span class="tok-kw">import</span>(<span class="tok-string">&quot;./tsx/scene18x9.object&quot;</span>), <span class="tok-comment">// covers 18x9, 19.5x9 via proximity</span>
+})</code></pre>
+      </div>
+<ol><li><strong>Optional manual cleanup during feature migration:</strong><ul><li>Once a team actively migrates one of these <code>11</code> features to prefabs, several can trivially become 1 <code>.tsx</code> by hand:</li><li><code>AlbumStoneBooster.Arena</code>: delete the 5 stray legacy sound nodes on <code>4x3</code>.</li><li><code>PlayersProfile.Popup</code>: keep <code>#Covering</code> in a single <code>.tsx</code> with <code>Hidden={byAspect({ &quot;18x9&quot;: false, &quot;19.5x9&quot;: false, default: true })}</code>.</li><li><code>Panels.Top</code>: verify whether the 2nd <code>MULTI_MASK_TEXTURE_NODE</code> on <code>3x2</code> is even needed.</li></ul></li></ol>
+<hr class="section-divider" />
+<h2 id="4-complete-scene-list-11-groups"><a class="anchor" href="#4-complete-scene-list-11-groups" aria-hidden="true">#</a>4. Complete Scene List (11 Groups)</h2>
+<div class="table-toolbar" data-table-toolbar="tbl-11-1">
+              <div class="table-search-wrap">
+                <svg class="search-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" class="table-search" placeholder="Filter 11 scenes by package, scene name, aspect, or property..." aria-label="Filter table" />
+              </div>
+              <div class="scope-chips" role="group" aria-label="Filter by package scope">
+                      <button type="button" class="chip active" data-scope="all">All</button>
+                      <button type="button" class="chip" data-scope="remote">remote</button><button type="button" class="chip" data-scope="static">static</button>
+                    </div>
+              <span class="table-count" data-count>Showing <strong>11</strong> of 11</span>
+            </div><div class="table-wrap"><table id="tbl-11-1" class="inventory-table"><thead><tr><th class="align-right">#</th><th class="align-left">Package</th><th class="align-left">Scene Pattern</th><th class="align-left">Scope</th><th class="align-left">Landscape Aspects</th><th class="align-left">Node Counts</th><th class="align-left">Structural Divergence Summary</th></tr></thead><tbody><tr data-scope="remote" data-search="1 sh-remote-ballinko.offer sceneofferpopup@.object remote 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:177, 18x9:194, 19.5x9:194, 3x2:176, 4x3:176, 5x3:176 root/0:render_states_node/0:container_node/7:closebtn#closebtn: button_node→render_states_node; root/0:render_states_node/0:container_node/4:container_node: children 1→3"><td class="align-right">1</td><td class="align-left"><code>sh-remote-Ballinko.Offer</code></td><td class="align-left"><code>sceneOfferPopup@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:177, 18x9:194, 19.5x9:194, 3x2:176, 4x3:176, 5x3:176</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/7:closeBtn#closeBtn</code>: BUTTON_NODE→RENDER_STATES_NODE; <code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE/4:CONTAINER_NODE</code>: children 1→3</td></tr><tr data-scope="remote" data-search="2 sh-remote-comebackreward.popups.purchase scenepurchasepopup@.object remote 4x3, 3x2, 16x9 16x9:30, 3x2:16, 4x3:16 root#popupstates: control_node→render_states_node"><td class="align-right">2</td><td class="align-left"><code>sh-remote-ComebackReward.Popups.Purchase</code></td><td class="align-left"><code>scenePurchasePopup@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>16x9</code></td><td class="align-left">16x9:30, 3x2:16, 4x3:16</td><td class="align-left"><code>root#popupStates</code>: CONTROL_NODE→RENDER_STATES_NODE</td></tr><tr data-scope="remote" data-search="3 sh-remote-dashes.dashmaxpurchasepopup scenedashmaxpurchasepopup@.object remote 4x3, 3x2 3x2:30, 4x3:34 root#purchasepopup: control_node→render_states_node"><td class="align-right">3</td><td class="align-left"><code>sh-remote-Dashes.DashMaxPurchasePopup</code></td><td class="align-left"><code>sceneDashMaxPurchasePopup@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-left">3x2:30, 4x3:34</td><td class="align-left"><code>root#purchasePopup</code>: CONTROL_NODE→RENDER_STATES_NODE</td></tr><tr data-scope="remote" data-search="4 sh-remote-levelmap.popups.newfeature scenesurprisegift@.object remote 4x3, 3x2, 5x3, 16x9, 19.5x9 16x9:320, 19.5x9:320, 3x2:326, 4x3:320, 5x3:320 root/0:render_states_node/0:container_node: children 26→25; root/0:render_states_node/0:container_node: children 26→25"><td class="align-right">4</td><td class="align-left"><code>sh-remote-LevelMap.Popups.NewFeature</code></td><td class="align-left"><code>sceneSurpriseGift@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:320, 19.5x9:320, 3x2:326, 4x3:320, 5x3:320</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE</code>: children 26→25; <code>root/0:RENDER_STATES_NODE/0:CONTAINER_NODE</code>: children 26→25</td></tr><tr data-scope="remote" data-search="5 sh-remote-playersprofile.popup scene@.object remote 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:67, 18x9:71, 19.5x9:71, 3x2:67, 4x3:67, 5x3:67 root/4:panelprofile/0:container_node: children 9→10; root/4:panelprofile/0:container_node: children 9→10"><td class="align-right">5</td><td class="align-left"><code>sh-remote-PlayersProfile.Popup</code></td><td class="align-left"><code>scene@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:67, 18x9:71, 19.5x9:71, 3x2:67, 4x3:67, 5x3:67</td><td class="align-left"><code>root/4:panelProfile/0:CONTAINER_NODE</code>: children 9→10; <code>root/4:panelProfile/0:CONTAINER_NODE</code>: children 9→10</td></tr><tr data-scope="remote" data-search="6 sh-remote-slotocardsver2.album scenescalbum@.object remote 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:137, 18x9:137, 19.5x9:143, 3x2:137, 4x3:137, 5x3:138 root/0:album/0:container_node: children 12→14; root/0:album/0:container_node/11:container_node: children 2→3"><td class="align-right">6</td><td class="align-left"><code>sh-remote-SlotoCardsVer2.Album</code></td><td class="align-left"><code>sceneSCAlbum@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:137, 18x9:137, 19.5x9:143, 3x2:137, 4x3:137, 5x3:138</td><td class="align-left"><code>root/0:Album/0:CONTAINER_NODE</code>: children 12→14; <code>root/0:Album/0:CONTAINER_NODE/11:CONTAINER_NODE</code>: children 2→3</td></tr><tr data-scope="remote" data-search="7 sh-remote-slotocardsver2.album18 scenescalbum@.object remote 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:257, 18x9:252, 19.5x9:257, 3x2:257, 4x3:257, 5x3:257 root/0:album/0:container_node/0:container_node: container_node→control_node"><td class="align-right">7</td><td class="align-left"><code>sh-remote-SlotoCardsVer2.Album18</code></td><td class="align-left"><code>sceneSCAlbum@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:257, 18x9:252, 19.5x9:257, 3x2:257, 4x3:257, 5x3:257</td><td class="align-left"><code>root/0:Album/0:CONTAINER_NODE/0:CONTAINER_NODE</code>: CONTAINER_NODE→CONTROL_NODE</td></tr><tr data-scope="remote" data-search="8 sh-remote-slotocardsver2.albumstonebooster.arena scenearena@.object remote 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:768, 18x9:768, 19.5x9:768, 3x2:768, 4x3:783, 5x3:768 root: children 13→18"><td class="align-right">8</td><td class="align-left"><code>sh-remote-SlotoCardsVer2.AlbumStoneBooster.Arena</code></td><td class="align-left"><code>sceneArena@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:768, 18x9:768, 19.5x9:768, 3x2:768, 4x3:783, 5x3:768</td><td class="align-left"><code>root</code>: children 13→18</td></tr><tr data-scope="remote" data-search="9 sh-remote-slotoheroes.slotofigz.shop scenefigz2shop@.object remote 4x3, 3x2 3x2:49, 4x3:43 root: control_node→render_states_node"><td class="align-right">9</td><td class="align-left"><code>sh-remote-SlotoHeroes.SlotoFigz.Shop</code></td><td class="align-left"><code>sceneFigz2Shop@.object</code></td><td class="align-left"><span class="scope-pill scope-remote">remote</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code></td><td class="align-left">3x2:49, 4x3:43</td><td class="align-left"><code>root</code>: CONTROL_NODE→RENDER_STATES_NODE</td></tr><tr data-scope="static" data-search="10 sh-static-panels.top screennode.scenepanel@.object static 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:405, 18x9:405, 19.5x9:405, 3x2:409, 4x3:405, 5x3:405 root/0:render_states_node/0:screen_alignment_node/0:container_node/7:bgcontainer/0:container_node: children 6→5; root/0:render_states_node/0:screen_alignment_node/0:container_node/7:bgcontainer/0:container_node: children 6→5"><td class="align-right">10</td><td class="align-left"><code>sh-static-Panels.Top</code></td><td class="align-left"><code>screenNode.scenePanel@.object</code></td><td class="align-left"><span class="scope-pill scope-static">static</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:405, 18x9:405, 19.5x9:405, 3x2:409, 4x3:405, 5x3:405</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:SCREEN_ALIGNMENT_NODE/0:CONTAINER_NODE/7:BgContainer/0:CONTAINER_NODE</code>: children 6→5; <code>root/0:RENDER_STATES_NODE/0:SCREEN_ALIGNMENT_NODE/0:CONTAINER_NODE/7:BgContainer/0:CONTAINER_NODE</code>: children 6→5</td></tr><tr data-scope="static" data-search="11 sh-static-pras.statusbar screennode.scenepanel@.object static 4x3, 3x2, 5x3, 16x9, 18x9, 19.5x9 16x9:421, 18x9:415, 19.5x9:415, 3x2:421, 4x3:421, 5x3:421 root/0:render_states_node/0:screen_alignment_node/0:container_node/20:container_node/2:levelpromo/0:container_node: children 10→9; root/0:render_states_node/0:screen_alignment_node/0:container_node/20:container_node/2:levelpromo/0:container_node: children 10→9"><td class="align-right">11</td><td class="align-left"><code>sh-static-PRAS.StatusBar</code></td><td class="align-left"><code>screenNode.scenePanel@.object</code></td><td class="align-left"><span class="scope-pill scope-static">static</span></td><td class="align-left"><code>4x3</code>, <code>3x2</code>, <code>5x3</code>, <code>16x9</code>, <code>18x9</code>, <code>19.5x9</code></td><td class="align-left">16x9:421, 18x9:415, 19.5x9:415, 3x2:421, 4x3:421, 5x3:421</td><td class="align-left"><code>root/0:RENDER_STATES_NODE/0:SCREEN_ALIGNMENT_NODE/0:CONTAINER_NODE/20:CONTAINER_NODE/2:LevelPromo/0:CONTAINER_NODE</code>: children 10→9; <code>root/0:RENDER_STATES_NODE/0:SCREEN_ALIGNMENT_NODE/0:CONTAINER_NODE/20:CONTAINER_NODE/2:LevelPromo/0:CONTAINER_NODE</code>: children 10→9</td></tr></tbody></table></div>
+          <nav class="pager" aria-label="Page navigation">
+    <a class="pager-card pager-prev" href="./10-structural-small-node-delta.html">
+            <span class="pager-dir">← Previous</span>
+            <span class="pager-title">10. Small Node Delta (1–3)</span>
+          </a>
+    <a class="pager-card pager-next" href="./12-portrait-and-orientation.html">
+            <span class="pager-dir">Next →</span>
+            <span class="pager-title">12. Portrait &amp; Orientation</span>
+          </a>
+  </nav>
+        </article>
+        <aside class="toc" aria-label="On this page">
+          <div class="toc-title">On this page</div>
+          <ul><li class="toc-l2"><a href="#1-what-defines-this-group">1. What Defines This Group</a></li><li class="toc-l2"><a href="#2-real-wbip-examples-side-by-side-trees">2. Real WBIP Examples (Side-by-Side Trees)</a></li><li class="toc-l3"><a href="#example-a-sh-remote-playersprofile-popup-scene-object-localized-wide-screen-side-cover-67-vs-71-nodes">Example A: sh-remote-PlayersProfile.Popup — scene@.object (Localized wide-screen side cover: 67 vs 71 nodes)</a></li><li class="toc-l3"><a href="#example-b-sh-remote-ballinko-offer-sceneofferpopup-object-extra-wide-screen-effects-wrapped-close-button-176-vs-194-nodes">Example B: sh-remote-Ballinko.Offer — sceneOfferPopup@.object (Extra wide-screen effects + wrapped close button: 176 vs 194 nodes)</a></li><li class="toc-l3"><a href="#example-c-sh-remote-slotocardsver2-albumstonebooster-arena-scenearena-object-duplicate-legacy-sound-containers-on-4x3-768-vs-783-nodes">Example C: sh-remote-SlotoCardsVer2.AlbumStoneBooster.Arena — sceneArena@.object (Duplicate legacy sound containers on 4x3: 768 vs 783 nodes)</a></li><li class="toc-l3"><a href="#example-d-sh-remote-comebackreward-popups-purchase-scenepurchasepopup-object-different-root-wrapper-hoisted-buttons-16-vs-30-nodes">Example D: sh-remote-ComebackReward.Popups.Purchase — scenePurchasePopup@.object (Different root wrapper &amp; hoisted buttons: 16 vs 30 nodes)</a></li><li class="toc-l2"><a href="#3-potential-solution-lazy-fallback-selective-refactoring">3. Potential Solution (Lazy Fallback + Selective Refactoring)</a></li><li class="toc-l2"><a href="#4-complete-scene-list-11-groups">4. Complete Scene List (11 Groups)</a></li></ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+  <script src="./assets/search-index.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
