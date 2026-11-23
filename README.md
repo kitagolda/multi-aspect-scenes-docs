@@ -28,3 +28,4 @@ git push -u origin main
    - Either select **Source: Deploy from a branch** → `main` / `/ (root)`, **or**
    - Select **Source: GitHub Actions** (the included `.github/workflows/pages.yml` deploys automatically on every push to `main`).
 # multi-aspect-scenes-docs
+# multi-aspect-scenes-docs
